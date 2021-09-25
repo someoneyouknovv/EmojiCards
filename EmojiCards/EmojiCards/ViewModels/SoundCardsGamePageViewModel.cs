@@ -5,10 +5,8 @@ using EmojiCards.Resources;
 using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
@@ -55,8 +53,13 @@ namespace EmojiCards.ViewModels
 
         public void OnPreviousVoiceCardBtnTapped(object obj)
         {
-            DisplayPopUps();
-
+            if (CurrentCard.ID == 1)
+            {
+                DisplayPopUps();
+                return;
+            }
+            CurrentCard = CardsList.OrderByDescending(i => i.ID).
+                Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
@@ -64,9 +67,9 @@ namespace EmojiCards.ViewModels
             if(CurrentCard.ID == 10)
             {
                 DisplayPopUps();
+                return;
             }
             CurrentCard = CardsList.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
-            
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -79,17 +82,21 @@ namespace EmojiCards.ViewModels
         {
             if(CurrentCard.ID == 1)
             {
-                await page.DisplayAlert("alert", "nema kade da odis nazad", "ok");
-                return;
+                await page.DisplayAlert(AppResources.SharedAlertAlert,
+                    AppResources.SoundCardsGamePageAlertCantGoBack,
+                    AppResources.SharedAlertOk);
             }
             else if(CurrentCard.ID == 10)
             {
-                var result = await page.DisplayAlert("Alert", "sakas li od pocetok?", "yes", "no");
+                var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
+                    AppResources.SoundCardsGamePageAlertPlayAgain,
+                    AppResources.SharedAlertYes,
+                    AppResources.SharedAlertNo);
+
                 if (!result)
                     await page.Navigation.PopAsync();
                 CurrentCard = CardsList.FirstOrDefault();
             }
-
         }
     }
 }

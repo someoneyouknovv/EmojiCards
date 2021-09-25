@@ -306,6 +306,12 @@
   <data name="SignUpPageTitle" xml:space="preserve">
     <value>Регистрација</value>
   </data>
+  <data name="SoundCardsGamePageAlertCantGoBack" xml:space="preserve">
+    <value>Не можете да се движете назад.</value>
+  </data>
+  <data name="SoundCardsGamePageAlertPlayAgain" xml:space="preserve">
+    <value>Дали сакате да играте повторно?</value>
+  </data>
   <data name="SoundCardsGamePageTitle" xml:space="preserve">
     <value>Звучни картички</value>
   </data>

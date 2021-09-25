@@ -628,6 +628,24 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can&apos;t go back..
+        /// </summary>
+        internal static string SoundCardsGamePageAlertCantGoBack {
+            get {
+                return ResourceManager.GetString("SoundCardsGamePageAlertCantGoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to play again?.
+        /// </summary>
+        internal static string SoundCardsGamePageAlertPlayAgain {
+            get {
+                return ResourceManager.GetString("SoundCardsGamePageAlertPlayAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sound Cards.
         /// </summary>
         internal static string SoundCardsGamePageTitle {

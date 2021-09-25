@@ -38,7 +38,7 @@ namespace EmojiCards.Repository
                 {
                     ID = 4,
                     EmojiName = AppResources.SharedModelCry,
-                    ImageSource = "crying.png"
+                    ImageSource = "cry.png"
 
                 },
 
