@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class ChangeLanguagePageViewModel : BaseViewModel
+    public class ChangeLanguageViewModel : BaseViewModel
     {
         private ObservableCollection<MyLanguage> _langNames = new ObservableCollection<MyLanguage>();
         public ObservableCollection<MyLanguage> LangNames
@@ -32,7 +32,7 @@ namespace EmojiCards.ViewModels
         private ICommand _onUpdateLangugeBtnClicked;
         public ICommand UpdateLangugeBtnClicked => _onUpdateLangugeBtnClicked ??= new DelegateCommand(OnUpdateLangugeBtnClicked);
 
-        public ChangeLanguagePageViewModel(Page page) : base(page)
+        public ChangeLanguageViewModel(Page page) : base(page)
         {
             MyLanguage en = new MyLanguage("English", "en");
             LangNames.Add(en);

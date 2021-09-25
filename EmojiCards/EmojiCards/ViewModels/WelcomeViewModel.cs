@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class WelcomePageViewModel : BaseViewModel
+    public class WelcomeViewModel : BaseViewModel
     {
         private ICommand _continueBtnTappedCommand;
         public ICommand ContinueBtnTappedCommand => _continueBtnTappedCommand ??= new DelegateCommand(OnContinueBtnTappedCommand);
@@ -16,7 +16,7 @@ namespace EmojiCards.ViewModels
         private ICommand _changeLangBtnTappedCommand;
         public ICommand ChangeLangBtnTappedCommand => _changeLangBtnTappedCommand ??= new DelegateCommand(OnChangeLangBtnTappedCommand);
 
-        public WelcomePageViewModel(Page page) : base(page)
+        public WelcomeViewModel(Page page) : base(page)
         {
         }
         public async void OnContinueBtnTappedCommand()

@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class NoteDetailsPageViewModel : BaseViewModel
+    public class NoteDetailsViewModel : BaseViewModel
     {
         public string WebApiKey = "AIzaSyA5ssBLbQEyIo9pDUBomOweQYAD9hyoL94";
         private DBFirebase _services;
@@ -46,7 +46,7 @@ namespace EmojiCards.ViewModels
         public ICommand DeleteNoteBtnTappedCommand => _deleteNoteBtnTappedCommand ??= new DelegateCommand(OnDeleteNoteBtnTappedCommand);
 
 
-        public NoteDetailsPageViewModel(Page page) : base(page)
+        public NoteDetailsViewModel(Page page) : base(page)
         {
             _services = new DBFirebase();
         }

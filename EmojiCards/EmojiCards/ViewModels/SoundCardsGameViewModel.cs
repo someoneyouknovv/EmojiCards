@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class SoundCardsGamePageViewModel : BaseViewModel
+    public class SoundCardsGameViewModel : BaseViewModel
     {
         private readonly IGamesRepository _gamesRepository;
 
@@ -38,7 +38,7 @@ namespace EmojiCards.ViewModels
         private ICommand _nextVoiceCardBtn;
         public ICommand NextVoiceCardBtn => _nextVoiceCardBtn ??= new DelegateCommand<object>(OnNextVoiceCardBtnTapped);
 
-        public SoundCardsGamePageViewModel(Page page) : base(page)
+        public SoundCardsGameViewModel(Page page) : base(page)
         {
 
             _gamesRepository = new GamesRepository();

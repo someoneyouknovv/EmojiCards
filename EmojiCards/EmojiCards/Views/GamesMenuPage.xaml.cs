@@ -7,10 +7,10 @@ namespace EmojiCards.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GamesMenuPage : ContentPage
     {
-        private GamesMenuPageViewModel _vm;
+        private GamesMenuViewModel _vm;
         public GamesMenuPage()
         {
-            _vm = new GamesMenuPageViewModel(this);
+            _vm = new GamesMenuViewModel(this);
             InitializeComponent();
 
             BindingContext = _vm;

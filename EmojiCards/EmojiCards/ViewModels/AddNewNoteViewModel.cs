@@ -15,7 +15,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class AddNewNotePageViewModel : BaseViewModel
+    public class AddNewNoteViewModel : BaseViewModel
     {
         public string WebApiKey = "AIzaSyA5ssBLbQEyIo9pDUBomOweQYAD9hyoL94";
         private DBFirebase _services;
@@ -37,7 +37,7 @@ namespace EmojiCards.ViewModels
         private ICommand _addNoteBtnTappedCommand;
         public ICommand AddNoteBtnTappedCommand => _addNoteBtnTappedCommand ??= new DelegateCommand<object>(OnAddNoteBtnTappedCommand);
 
-        public AddNewNotePageViewModel(Page page) : base(page)
+        public AddNewNoteViewModel(Page page) : base(page)
         {
             _services = new DBFirebase();
         }

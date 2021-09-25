@@ -7,10 +7,10 @@ namespace EmojiCards.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChangeLanguagePage : ContentPage
     {
-        private ChangeLanguagePageViewModel _vm;
+        private ChangeLanguageViewModel _vm;
         public ChangeLanguagePage()
         {
-            _vm = new ChangeLanguagePageViewModel(this);
+            _vm = new ChangeLanguageViewModel(this);
             InitializeComponent();
 
             BindingContext = _vm;

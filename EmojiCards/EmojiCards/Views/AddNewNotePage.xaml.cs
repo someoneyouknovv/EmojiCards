@@ -7,10 +7,10 @@ namespace EmojiCards.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddNewNotePage : ContentPage
     {
-        private AddNewNotePageViewModel _vm;
+        private AddNewNoteViewModel _vm;
         public AddNewNotePage()
         {
-            _vm = new AddNewNotePageViewModel(this);
+            _vm = new AddNewNoteViewModel(this);
             InitializeComponent();
             
             BindingContext = _vm;

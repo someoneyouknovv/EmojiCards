@@ -7,10 +7,10 @@ namespace EmojiCards.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SoundCardsGamePage : ContentPage
     {
-        private SoundCardsGamePageViewModel _vm;
+        private SoundCardsGameViewModel _vm;
         public SoundCardsGamePage()
         {
-            _vm = new SoundCardsGamePageViewModel(this);
+            _vm = new SoundCardsGameViewModel(this);
             InitializeComponent();
 
             BindingContext = _vm;

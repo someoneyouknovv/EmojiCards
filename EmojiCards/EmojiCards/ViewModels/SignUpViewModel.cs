@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class SignUpPageViewModel : BaseViewModel
+    public class SignUpViewModel : BaseViewModel
     {
         public string WebApiKey = "AIzaSyA5ssBLbQEyIo9pDUBomOweQYAD9hyoL94";
 
@@ -22,7 +22,7 @@ namespace EmojiCards.ViewModels
         private ICommand _signUpBtnClicked;
         public ICommand SignUpBtnClicked => _signUpBtnClicked ??= new DelegateCommand(OnSignUpBtnClicked);
 
-        public SignUpPageViewModel(Page page) : base(page)
+        public SignUpViewModel(Page page) : base(page)
         {
         }
 

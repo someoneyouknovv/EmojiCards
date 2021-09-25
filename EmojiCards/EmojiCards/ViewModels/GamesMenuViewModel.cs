@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class GamesMenuPageViewModel : BaseViewModel
+    public class GamesMenuViewModel : BaseViewModel
     {
         private ICommand _soundCardsBtnCommand;
         public ICommand SoundCardsBtnCommand => _soundCardsBtnCommand ??= new DelegateCommand(OnSoundCardsBtnTappedCommand);
@@ -16,7 +16,7 @@ namespace EmojiCards.ViewModels
         private ICommand _guessMeBtnCommand;
         public ICommand GuessMeBtnCommand => _guessMeBtnCommand ??= new DelegateCommand(OnGuessMeBtnTappedCommand);
 
-        public GamesMenuPageViewModel(Page page) : base(page)
+        public GamesMenuViewModel(Page page) : base(page)
         {
         }
 

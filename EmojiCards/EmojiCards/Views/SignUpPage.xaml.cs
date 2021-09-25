@@ -7,10 +7,10 @@ namespace EmojiCards.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignUpPage : ContentPage
     {
-        private SignUpPageViewModel _vm;
+        private SignUpViewModel _vm;
         public SignUpPage()
         {
-            _vm = new SignUpPageViewModel(this);
+            _vm = new SignUpViewModel(this);
             InitializeComponent();
 
             BindingContext = _vm;
