@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EmojiCards.Views.LogInPage"
+             Title="{xct:Translate LogInPageTitle}">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="CenterAndExpand">
+            <Label 
+                Text="{xct:Translate LogInPageLabelLogIn}"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                FontSize="20"
+                />
+            <Entry 
+                Placeholder="{xct:Translate SharedPlaceholderEmail}" 
+                Text="{Binding FirebaseUser.Username, Mode=TwoWay}"/>
+            <Entry 
+                Placeholder="{xct:Translate SharedPlaceholderPassword}" 
+                IsPassword="True"
+                Text="{Binding FirebaseUser.Password, Mode=TwoWay}"/>
+
+            <StackLayout
+                Orientation="Horizontal">
+                <Label 
+                    Text="{xct:Translate LogInPageLabelPleaseRegister}"
+                    HorizontalTextAlignment="End"
+                    TextDecorations="Underline"
+                    HorizontalOptions="StartAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding SignUpNavigationPageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label 
+                    Text="{xct:Translate LoginPageAlertForgotPassword}"
+                    HorizontalTextAlignment="End"
+                    TextDecorations="Underline"
+                    HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding ResetPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <BoxView BackgroundColor="Transparent" HeightRequest="10"/>
+
+            <Button 
+                Text="{xct:Translate LogInPageBtnLogIn}"
+                VerticalOptions="Fill"
+                Command="{Binding LogInBtnClicked}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

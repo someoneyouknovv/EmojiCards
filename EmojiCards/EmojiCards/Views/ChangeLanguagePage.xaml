@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EmojiCards.Views.ChangeLanguagePage"
+             Title="{xct:Translate ChangeLanguagePageTitle}">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="CenterAndExpand">
+            <StackLayout
+                x:Name="LangList"
+                VerticalOptions="CenterAndExpand"
+                BindableLayout.ItemsSource="{Binding LangNames}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout
+                            Margin="50,0,50,0"
+                            xct:TouchEffect.NativeAnimation="True">
+                            <Label
+                                HeightRequest="30"
+                                FontSize="Large"
+                                HorizontalTextAlignment="Start"
+                                Text="{Binding Name}"/>
+
+                            <BoxView HeightRequest="0.5" Color="Black"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding BindingContext.LangSelectedCommand,Source={x:Reference LangList}}" 
+                                    CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+            <BoxView Color="Transparent" HeightRequest="10"/>
+            
+            <Button 
+                Text="{xct:Translate ChangeLanguagePageBtnSave}"
+                Command="{Binding UpdateLangugeBtnClicked}"
+                VerticalOptions="Fill"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EmojiCards.Views.GamesMenuPage"
+             Title="{xct:Translate GamesMenuPageTitle}">
+    <!--<ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="30,0,30,0"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+    </ContentPage.Resources>-->
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                VerticalOptions="Center">
+                <Label 
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="AliceBlue"
+                    Opacity="0.5"
+                    Text="{xct:Translate GamesMenuPageLabelGames}"
+                    TextColor="Black"
+                    FontSize="50"/>
+            </StackLayout>
+
+            <StackLayout
+                VerticalOptions="CenterAndExpand">
+                <Button 
+                    Text="{xct:Translate GamesMenuPageButtonSoundCards}"
+                    Command="{Binding SoundCardsBtnCommand}" />
+
+                <Button
+                    Text="{xct:Translate GamesMenuPageButtonFlashCards}"
+                    Command="{Binding FlashCardsBtnCommand}" />
+
+                <Button
+                    Text="{xct:Translate GamesMenuPageButtonGuessMe}"
+                    Command="{Binding GuessMeBtnCommand}"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

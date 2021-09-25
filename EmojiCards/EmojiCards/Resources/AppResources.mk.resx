@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddNewNotePageTitle" xml:space="preserve">
+    <value>Нова белешка</value>
+  </data>
+  <data name="ChangeLanguagePageBtnSave" xml:space="preserve">
+    <value>Зачувај</value>
+  </data>
+  <data name="ChangeLanguagePageTitle" xml:space="preserve">
+    <value>Промени јазик</value>
+  </data>
+  <data name="GamesMenuPageButtonFlashCards" xml:space="preserve">
+    <value>Брзи картички</value>
+  </data>
+  <data name="GamesMenuPageButtonGuessMe" xml:space="preserve">
+    <value>Погоди ме</value>
+  </data>
+  <data name="GamesMenuPageButtonSoundCards" xml:space="preserve">
+    <value>Звучни картички</value>
+  </data>
+  <data name="GamesMenuPageLabelGames" xml:space="preserve">
+    <value>ИГРИ</value>
+  </data>
+  <data name="GamesMenuPageTitle" xml:space="preserve">
+    <value>Мени со игри</value>
+  </data>
+  <data name="LoginPageAlertForgotPassword" xml:space="preserve">
+    <value>Заборавена лозинка?</value>
+  </data>
+  <data name="LogInPageAlertInvalidCredentials" xml:space="preserve">
+    <value>Невалидна емаил адреса или лозинка!</value>
+  </data>
+  <data name="LogInPageAlertVerifyEmail" xml:space="preserve">
+    <value>Пред да продолжете, проверете ја Вашата емаил адреса за верификација.</value>
+  </data>
+  <data name="LogInPageAlertWrongPassword" xml:space="preserve">
+    <value>Погрешна лозинка.</value>
+  </data>
+  <data name="LogInPageBtnLogIn" xml:space="preserve">
+    <value>Најави се </value>
+  </data>
+  <data name="LogInPageLabelLogIn" xml:space="preserve">
+    <value>Ве молиме најавете се со валидна емаил адреса и лозинка.</value>
+  </data>
+  <data name="LogInPageLabelPleaseRegister" xml:space="preserve">
+    <value>Кликнете овде за регистрација.</value>
+  </data>
+  <data name="LogInPageTitle" xml:space="preserve">
+    <value>Најава</value>
+  </data>
+  <data name="MenuPageBtnGames" xml:space="preserve">
+    <value>Игри</value>
+  </data>
+  <data name="MenuPageBtnInfo" xml:space="preserve">
+    <value>Информации</value>
+  </data>
+  <data name="MenuPageBtnNotes" xml:space="preserve">
+    <value>Белешки</value>
+  </data>
+  <data name="MenuPageLabelMenu" xml:space="preserve">
+    <value>МЕНИ</value>
+  </data>
+  <data name="MenuPageTitle" xml:space="preserve">
+    <value>Мени</value>
+  </data>
+  <data name="NoteDetailsPageAlertConfirmationDeleteNote" xml:space="preserve">
+    <value>Дали сте сигурни дека сакате да ја избришете оваа белешка?</value>
+  </data>
+  <data name="NoteDetailsPageBtnDeleteNote" xml:space="preserve">
+    <value>Избриши белешка</value>
+  </data>
+  <data name="NoteDetailsPageBtnUpdateNote" xml:space="preserve">
+    <value>Ажурирај белешка</value>
+  </data>
+  <data name="NoteDetailsPageTitle" xml:space="preserve">
+    <value>Промени белешка</value>
+  </data>
+  <data name="NotesPageAlertSureToLogOut" xml:space="preserve">
+    <value>Дали сте сигурни дека сакате да се одјавите?</value>
+  </data>
+  <data name="NotesPageAlertTokenExpired" xml:space="preserve">
+    <value>Од безбедносни причини Ве молиме најавете се повторно.</value>
+  </data>
+  <data name="NotesPageButtonLogOut" xml:space="preserve">
+    <value>Одјави се</value>
+  </data>
+  <data name="NotesPageLabelListOfNotes" xml:space="preserve">
+    <value>Листа на белешки</value>
+  </data>
+  <data name="NotesPageTitle" xml:space="preserve">
+    <value>Белешки</value>
+  </data>
+  <data name="ResetPasswordPageAlertCheckEmail" xml:space="preserve">
+    <value>Проверете ја Вашата емаил адреса за промена на лозинката.</value>
+  </data>
+  <data name="ResetPasswordPageBtnSend" xml:space="preserve">
+    <value>Испрати</value>
+  </data>
+  <data name="ResetPasswordPageLabelEnterEmail" xml:space="preserve">
+    <value>Внесете ја Вашата емаил адреса за да можете да ја променете лозинката.</value>
+  </data>
+  <data name="ResetPasswordPageTitle" xml:space="preserve">
+    <value>Промени лозинка</value>
+  </data>
+  <data name="SharedAlertAlert" xml:space="preserve">
+    <value>Внимание!</value>
+  </data>
+  <data name="SharedAlertFIllBlanks" xml:space="preserve">
+    <value>Ве молиме потполнете ги празните места!</value>
+  </data>
+  <data name="SharedAlertNo" xml:space="preserve">
+    <value>Не</value>
+  </data>
+  <data name="SharedAlertOk" xml:space="preserve">
+    <value>Во ред</value>
+  </data>
+  <data name="SharedAlertRegistrationSucceeded" xml:space="preserve">
+    <value>Успешна регистрација! Проверете ја Вашата емаил адреса за верификација.</value>
+  </data>
+  <data name="SharedAlertSomethingWentWrong" xml:space="preserve">
+    <value>Настана грешка. Ве молиме обидете се повторно.</value>
+  </data>
+  <data name="SharedAlertUnknownEmail" xml:space="preserve">
+    <value>Непозната емаил адреса!</value>
+  </data>
+  <data name="SharedAlertYes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="SharedButtonAddNote" xml:space="preserve">
+    <value>Додади белешка</value>
+  </data>
+  <data name="SharedModelAngry" xml:space="preserve">
+    <value>НАЛУТЕН</value>
+  </data>
+  <data name="SharedModelConfused" xml:space="preserve">
+    <value>ЗБУНЕТ</value>
+  </data>
+  <data name="SharedModelCry" xml:space="preserve">
+    <value>РАСПЛАКАН</value>
+  </data>
+  <data name="SharedModelHappy" xml:space="preserve">
+    <value>СРЕЌЕН</value>
+  </data>
+  <data name="SharedModelHungry" xml:space="preserve">
+    <value>ГЛАДЕН</value>
+  </data>
+  <data name="SharedModelSad" xml:space="preserve">
+    <value>ТАЖЕН</value>
+  </data>
+  <data name="SharedModelShy" xml:space="preserve">
+    <value>ЗАСРАМЕН</value>
+  </data>
+  <data name="SharedModelSmiling" xml:space="preserve">
+    <value>НАСМЕАН</value>
+  </data>
+  <data name="SharedModelSurprised" xml:space="preserve">
+    <value>ИЗНЕНАДЕН</value>
+  </data>
+  <data name="SharedModelThirsty" xml:space="preserve">
+    <value>ЖЕДЕН</value>
+  </data>
+  <data name="SharedPlaceholderDescription" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="SharedPlaceholderEmail" xml:space="preserve">
+    <value>Е- маил </value>
+  </data>
+  <data name="SharedPlaceholderPassword" xml:space="preserve">
+    <value>Лозинка</value>
+  </data>
+  <data name="SharedPlaceholderTitle" xml:space="preserve">
+    <value>Наслов</value>
+  </data>
+  <data name="SignUpPageAlertEmailExists" xml:space="preserve">
+    <value>Емаил адресата е зафатена. Ве молиме регистрирајте се со нова.</value>
+  </data>
+  <data name="SignUpPageAlertInvalidCredentials" xml:space="preserve">
+    <value>Ве молиме внесете валидна емаил адреса.</value>
+  </data>
+  <data name="SignUpPageAlertWeakPassword" xml:space="preserve">
+    <value>Ве молиме внесете посилна лозинка.</value>
+  </data>
+  <data name="SignUpPageBtnSignUp" xml:space="preserve">
+    <value>Регистрирај се</value>
+  </data>
+  <data name="SignUpPageLabelFillForm" xml:space="preserve">
+    <value>Ве молиме потполнете ја следнава форма за регистрација.</value>
+  </data>
+  <data name="SignUpPageTitle" xml:space="preserve">
+    <value>Регистрација</value>
+  </data>
+  <data name="SoundCardsGamePageTitle" xml:space="preserve">
+    <value>Звучни картички</value>
+  </data>
+  <data name="WelcomePageBtnChangeLang" xml:space="preserve">
+    <value>Промени Јазик</value>
+  </data>
+  <data name="WelcomePageBtnContinue" xml:space="preserve">
+    <value>Продолжи</value>
+  </data>
+  <data name="WelcomePageTitle" xml:space="preserve">
+    <value>Добредојдовте!</value>
+  </data>
+</root>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EmojiCards.Views.NoteDetailsPage"
+             Title="{xct:Translate NoteDetailsPageTitle}">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="CenterAndExpand" >
+            <ScrollView>
+                <StackLayout>
+                    <Label 
+                        Text="{xct:Translate SharedPlaceholderTitle}"
+                        TextColor="Black"
+                        FontSize="Medium"
+                        BackgroundColor="LightGray"/>
+                    <Editor
+                        AutoSize="TextChanges"
+                        Placeholder="{xct:Translate SharedPlaceholderTitle}"
+                        Text="{Binding CurrentNote.Title, Mode=TwoWay}" />
+                    
+                    <Label 
+                        Text="{xct:Translate SharedPlaceholderDescription}"
+                        TextColor="Black"
+                        FontSize="Medium"
+                        BackgroundColor="LightGray"/>
+                    <Editor
+                        AutoSize="TextChanges"
+                        Placeholder="{xct:Translate SharedPlaceholderDescription}"  
+                        Text="{Binding CurrentNote.Description, Mode=TwoWay}"/>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout
+                VerticalOptions="End"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                <Button
+                    Text="{xct:Translate NoteDetailsPageBtnUpdateNote}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding UpdateNoteBtnTappedCommand}"
+                    CommandParameter="{Binding BindingContext.CurrentNote}"/>
+
+                <Button
+                    Text="{xct:Translate NoteDetailsPageBtnDeleteNote}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding IsDeleteBtnVisible}"
+                    Command="{Binding DeleteNoteBtnTappedCommand}"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

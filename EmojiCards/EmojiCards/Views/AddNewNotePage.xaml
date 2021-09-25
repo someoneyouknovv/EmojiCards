@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EmojiCards.Views.AddNewNotePage"
+             Title="{xct:Translate AddNewNotePageTitle}">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="CenterAndExpand" >
+            <ScrollView>
+                <StackLayout>
+                    <Editor 
+                        AutoSize="TextChanges"
+                        Placeholder="{xct:Translate SharedPlaceholderTitle}"
+                        Text="{Binding CurrentNote.Title, Mode=TwoWay}" />
+                    <Editor
+                        AutoSize="TextChanges"
+                        Placeholder="{xct:Translate SharedPlaceholderDescription}"  
+                        Text="{Binding CurrentNote.Description, Mode=TwoWay}"/>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout
+                VerticalOptions="End"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                <Button
+                    Text="{xct:Translate SharedButtonAddNote}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding AddNoteBtnTappedCommand}"
+                    CommandParameter="{Binding CurrentNote}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

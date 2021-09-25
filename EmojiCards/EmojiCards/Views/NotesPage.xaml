@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="EmojiCards.Views.NotesPage"
+             Title="{xct:Translate NotesPageTitle}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label 
+                Text="{xct:Translate NotesPageLabelListOfNotes}" 
+                FontSize="Large"/>
+
+            <ListView
+                ItemsSource="{Binding NotesCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell 
+                            Text="{Binding Title}"
+                            Detail="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <prism:EventToCommandBehavior EventName="ItemTapped"               
+                                          Command="{Binding SingleNoteTappedCommand}"
+                                          EventArgsParameterPath="Item"  />
+                </ListView.Behaviors>
+            </ListView>
+            
+            <StackLayout
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                
+                <Button
+                    Text="{xct:Translate SharedButtonAddNote}"
+                    Command="{Binding AddNoteBtnTappedCommand}"/>
+                <Button 
+                    Text="{xct:Translate NotesPageButtonLogOut}"
+                    Command="{Binding LogOutBtnClicked}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

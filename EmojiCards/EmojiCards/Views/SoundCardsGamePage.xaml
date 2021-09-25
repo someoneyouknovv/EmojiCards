@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:model="clr-namespace:EmojiCards.Models"
+             x:Class="EmojiCards.Views.SoundCardsGamePage"
+             Title="{xct:Translate SoundCardsGamePageTitle}">
+
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="CenterAndExpand">
+            <StackLayout 
+                Orientation="Vertical"
+                Padding="50,0,50,0">
+                <Image
+                    Aspect="AspectFit"
+                    Source="{Binding CurrentCard.ImageSource}"/>
+
+                <StackLayout
+                    Spacing="0"                               
+                    Orientation="Horizontal"
+                    BackgroundColor="Orange"
+                    xct:TouchEffect.NativeAnimation="True">
+                    <Image
+                        Aspect="AspectFit"
+                        Source="sound_left.png"
+                        HeightRequest="50"/>
+
+                    <Label
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Black"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="30"
+                        Text="{Binding CurrentCard.EmojiName}"/>
+
+                    <Image
+                        Aspect="AspectFit"
+                        Source="sound_right.png"
+                        HeightRequest="50"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding VoiceCommand}" 
+                            CommandParameter="{Binding CurrentCard.ID}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+
+            <BoxView Color="Transparent" HeightRequest="10"/>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand">
+
+                <Image
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Aspect="AspectFit"
+                    Source="leftbutton.png"
+                    xct:TouchEffect.NativeAnimation="True" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding PreviousVoiceCardBtn}"
+                            CommandParameter="{Binding CurrentCard.ID}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Aspect="AspectFit"
+                    Source="rightbutton.png"
+                    xct:TouchEffect.NativeAnimation="True">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding NextVoiceCardBtn}"
+                            CommandParameter="{Binding CurrentCard.ID}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
