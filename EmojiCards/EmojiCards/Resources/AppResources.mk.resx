@@ -184,10 +184,10 @@
     <value>Дали сте сигурни дека сакате да ја избришете оваа белешка?</value>
   </data>
   <data name="NoteDetailsPageBtnDeleteNote" xml:space="preserve">
-    <value>Избриши белешка</value>
+    <value>Избриши</value>
   </data>
   <data name="NoteDetailsPageBtnUpdateNote" xml:space="preserve">
-    <value>Ажурирај белешка</value>
+    <value>Ажурирај</value>
   </data>
   <data name="NoteDetailsPageTitle" xml:space="preserve">
     <value>Промени белешка</value>

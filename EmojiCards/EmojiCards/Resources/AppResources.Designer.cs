@@ -259,7 +259,7 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete note.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string NoteDetailsPageBtnDeleteNote {
             get {
@@ -268,7 +268,7 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update note.
+        ///   Looks up a localized string similar to Update.
         /// </summary>
         internal static string NoteDetailsPageBtnUpdateNote {
             get {

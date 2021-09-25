@@ -69,7 +69,7 @@ namespace EmojiCards.ViewModels
         {
             var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
                 AppResources.NoteDetailsPageAlertConfirmationDeleteNote,
-                AppResources.SharedAlertOk,
+                AppResources.SharedAlertYes,
                 AppResources.SharedAlertNo);
 
             if (!result)

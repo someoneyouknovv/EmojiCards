@@ -184,10 +184,10 @@
     <value>Are you sure you want to delete this note?</value>
   </data>
   <data name="NoteDetailsPageBtnDeleteNote" xml:space="preserve">
-    <value>Delete note</value>
+    <value>Delete</value>
   </data>
   <data name="NoteDetailsPageBtnUpdateNote" xml:space="preserve">
-    <value>Update note</value>
+    <value>Update</value>
   </data>
   <data name="NoteDetailsPageTitle" xml:space="preserve">
     <value>Edit note</value>

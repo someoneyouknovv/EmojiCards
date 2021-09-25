@@ -5,10 +5,10 @@
              x:Class="EmojiCards.Views.NoteDetailsPage"
              Title="{xct:Translate NoteDetailsPageTitle}">
     <ContentPage.Content>
-        <StackLayout
-            VerticalOptions="CenterAndExpand" >
+        <StackLayout>
             <ScrollView>
-                <StackLayout>
+                <StackLayout
+                    VerticalOptions="CenterAndExpand" >
                     <Label 
                         Text="{xct:Translate SharedPlaceholderTitle}"
                         TextColor="Black"
@@ -32,20 +32,23 @@
             </ScrollView>
 
             <StackLayout
-                VerticalOptions="End"
+                Spacing="0"
+                VerticalOptions="EndAndExpand"
                 HorizontalOptions="CenterAndExpand"
                 Orientation="Horizontal">
                 <Button
+                    Margin="10,0,10,0"
                     Text="{xct:Translate NoteDetailsPageBtnUpdateNote}"
                     VerticalOptions="Fill"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
                     Command="{Binding UpdateNoteBtnTappedCommand}"
                     CommandParameter="{Binding BindingContext.CurrentNote}"/>
 
                 <Button
+                    Margin="10,0,10,0"
                     Text="{xct:Translate NoteDetailsPageBtnDeleteNote}"
                     VerticalOptions="Fill"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
                     IsVisible="{Binding IsDeleteBtnVisible}"
                     Command="{Binding DeleteNoteBtnTappedCommand}"/>
 
