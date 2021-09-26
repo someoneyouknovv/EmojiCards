@@ -18899,40 +18899,43 @@ namespace EmojiCards.Droid
 			public const int notify_panel_notification_icon_bg = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int rightbutton = 2131165332;
+			public const int question_mark = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int sad = 2131165333;
+			public const int rightbutton = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int shy = 2131165334;
+			public const int sad = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int smiling = 2131165335;
+			public const int shy = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int sound_left = 2131165336;
+			public const int smiling = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int sound_right = 2131165337;
+			public const int sound_left = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int surprised = 2131165338;
+			public const int sound_right = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int test_custom_background = 2131165339;
+			public const int surprised = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int thirsty = 2131165340;
+			public const int test_custom_background = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int tooltip_frame_dark = 2131165341;
+			public const int thirsty = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int tooltip_frame_light = 2131165342;
+			public const int tooltip_frame_dark = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int welcome_page_kids = 2131165343;
+			public const int tooltip_frame_light = 2131165343;
+			
+			// aapt resource value: 0x7F0700A0
+			public const int welcome_page_kids = 2131165344;
 			
 			static Drawable()
 			{

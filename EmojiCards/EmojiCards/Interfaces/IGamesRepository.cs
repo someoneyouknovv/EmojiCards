@@ -1,10 +1,10 @@
 ﻿using EmojiCards.Models;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace EmojiCards.Interfaces
 {
     public interface IGamesRepository
     {
-        List<SoundCardsGameModel> GetAllSoundCards();
+        ObservableCollection<CardGameModel> GetAllCards();
     }
 }

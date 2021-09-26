@@ -185,4 +185,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\angry.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\question_mark.jpg" />
+  </ItemGroup>
 </Project>

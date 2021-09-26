@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmojiCards.Views.FlashCardsGamePage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="{xct:Translate FlashCardsGamePageTitle}">
+    <ContentPage.Content>
+        <StackLayout>
+            <ImageButton
+                Margin="50,0,50,0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="Transparent"
+                xct:TouchEffect.NativeAnimation="True"
+                xct:TouchEffect.Command="{Binding QuestionMarkImageCommand}"
+                Source="{Binding ImageSource}"
+                Aspect="AspectFit">
+            </ImageButton>
+
+            <StackLayout
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand">
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="AliceBlue"
+                    Opacity="0.5"
+                    FontSize="30"
+                    TextColor="Red"
+                    Text="{Binding Helper}"
+                    IsVisible="{Binding IsHelperVisible}"/>
+                <Button
+                    Text="{xct:Translate FlashCardsGameButtonHelp}"
+                    BackgroundColor="Coral"
+                    TextColor="Black"
+                    IsVisible="{Binding IsHelpBtnVisible}"
+                    Command="{Binding HelpNeededCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

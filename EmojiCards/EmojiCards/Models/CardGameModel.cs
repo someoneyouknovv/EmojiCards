@@ -2,7 +2,7 @@
 
 namespace EmojiCards.Models
 {
-    public class SoundCardsGameModel : BindableBase
+    public class CardGameModel : BindableBase
     {
         private int _id;
         public int ID

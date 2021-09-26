@@ -1,4 +1,5 @@
 ﻿using EmojiCards.Models;
+using EmojiCards.Resources;
 using EmojiCards.Views;
 using Prism.Commands;
 using System.Collections.ObjectModel;

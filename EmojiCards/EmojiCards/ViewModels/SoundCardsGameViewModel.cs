@@ -4,7 +4,7 @@ using EmojiCards.Repository;
 using EmojiCards.Resources;
 using Prism.Commands;
 using Prism.Navigation;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -15,18 +15,18 @@ namespace EmojiCards.ViewModels
     {
         private readonly IGamesRepository _gamesRepository;
 
-        private SoundCardsGameModel _currentCard = new SoundCardsGameModel();
-        public SoundCardsGameModel CurrentCard
+        private CardGameModel _currentCard = new CardGameModel();
+        public CardGameModel CurrentCard
         {
             get => _currentCard;
             set => SetProperty(ref _currentCard, value);
         }
 
-        private List<SoundCardsGameModel> _cardsList = new List<SoundCardsGameModel>();
-        public List<SoundCardsGameModel> CardsList
+        private ObservableCollection<CardGameModel> _cardsCollection = new ObservableCollection<CardGameModel>();
+        public ObservableCollection<CardGameModel> CardsCollection
         {
-            get => _cardsList;
-            set => SetProperty(ref _cardsList, value);
+            get => _cardsCollection;
+            set => SetProperty(ref _cardsCollection, value);
         }
 
         private ICommand _voiceCommand;
@@ -42,7 +42,7 @@ namespace EmojiCards.ViewModels
         {
 
             _gamesRepository = new GamesRepository();
-            CardsList = _gamesRepository.GetAllSoundCards();
+            CardsCollection = _gamesRepository.GetAllCards();
         }
 
         public void OnVoiceCommandTapped(object obj)
@@ -58,7 +58,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsList.OrderByDescending(i => i.ID).
+            CurrentCard = CardsCollection.OrderByDescending(i => i.ID).
                 Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
         }
 
@@ -69,13 +69,13 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsList.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
+            CurrentCard = CardsCollection.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            CurrentCard = CardsList.FirstOrDefault();
+            CurrentCard = CardsCollection.FirstOrDefault();
         }
 
         public async void DisplayPopUps()
@@ -95,7 +95,8 @@ namespace EmojiCards.ViewModels
 
                 if (!result)
                     await page.Navigation.PopAsync();
-                CurrentCard = CardsList.FirstOrDefault();
+
+                CurrentCard = CardsCollection.FirstOrDefault();
             }
         }
     }

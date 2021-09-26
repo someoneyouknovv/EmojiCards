@@ -88,6 +88,33 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click for help.
+        /// </summary>
+        internal static string FlashCardsGameButtonHelp {
+            get {
+                return ResourceManager.GetString("FlashCardsGameButtonHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click on the question mark :).
+        /// </summary>
+        internal static string FlashCardsGamePageLabelHelper {
+            get {
+                return ResourceManager.GetString("FlashCardsGamePageLabelHelper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flash cards.
+        /// </summary>
+        internal static string FlashCardsGamePageTitle {
+            get {
+                return ResourceManager.GetString("FlashCardsGamePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flash cards.
         /// </summary>
         internal static string GamesMenuPageButtonFlashCards {
@@ -129,6 +156,24 @@ namespace EmojiCards.Resources {
         internal static string GamesMenuPageTitle {
             get {
                 return ResourceManager.GetString("GamesMenuPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmojiCards is a creative and educational application that helps children with autism better understand and recognise feelings. The games that it contains are made as simple as posible so that the child could play alone. It also contains a parent- mode that helps them to write and monitor their child&apos;s progress while using the application..
+        /// </summary>
+        internal static string InfoPageLabelInfo {
+            get {
+                return ResourceManager.GetString("InfoPageLabelInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string InfoPageTitle {
+            get {
+                return ResourceManager.GetString("InfoPageTitle", resourceCulture);
             }
         }
         
@@ -646,7 +691,7 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sound Cards.
+        ///   Looks up a localized string similar to Sound cards.
         /// </summary>
         internal static string SoundCardsGamePageTitle {
             get {

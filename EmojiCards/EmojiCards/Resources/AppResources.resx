@@ -126,6 +126,15 @@
   <data name="ChangeLanguagePageTitle" xml:space="preserve">
     <value>Change language</value>
   </data>
+  <data name="FlashCardsGameButtonHelp" xml:space="preserve">
+    <value>Click for help</value>
+  </data>
+  <data name="FlashCardsGamePageLabelHelper" xml:space="preserve">
+    <value>Click on the question mark :)</value>
+  </data>
+  <data name="FlashCardsGamePageTitle" xml:space="preserve">
+    <value>Flash cards</value>
+  </data>
   <data name="GamesMenuPageButtonFlashCards" xml:space="preserve">
     <value>Flash cards</value>
   </data>
@@ -140,6 +149,12 @@
   </data>
   <data name="GamesMenuPageTitle" xml:space="preserve">
     <value>Games menu</value>
+  </data>
+  <data name="InfoPageLabelInfo" xml:space="preserve">
+    <value>EmojiCards is a creative and educational application that helps children with autism better understand and recognise feelings. The games that it contains are made as simple as posible so that the child could play alone. It also contains a parent- mode that helps them to write and monitor their child's progress while using the application.</value>
+  </data>
+  <data name="InfoPageTitle" xml:space="preserve">
+    <value>Information</value>
   </data>
   <data name="LoginPageAlertForgotPassword" xml:space="preserve">
     <value>Forgot password?</value>
@@ -313,7 +328,7 @@
     <value>Do you want to play again?</value>
   </data>
   <data name="SoundCardsGamePageTitle" xml:space="preserve">
-    <value>Sound Cards</value>
+    <value>Sound cards</value>
   </data>
   <data name="WelcomePageBtnChangeLang" xml:space="preserve">
     <value>Change Language</value>

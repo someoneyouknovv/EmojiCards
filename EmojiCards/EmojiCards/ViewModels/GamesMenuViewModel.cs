@@ -25,9 +25,9 @@ namespace EmojiCards.ViewModels
             await page.Navigation.PushAsync(new SoundCardsGamePage());
         }
 
-        public void OnFlashCardsBtnTappedCommand()
+        public async void OnFlashCardsBtnTappedCommand()
         {
-
+            await page.Navigation.PushAsync(new FlashCardsGamePage());
         }
 
         public void OnGuessMeBtnTappedCommand()

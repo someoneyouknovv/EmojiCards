@@ -30,9 +30,9 @@ namespace EmojiCards.ViewModels
             await page.Navigation.PushAsync(new LogInPage());
         }
 
-        public void OnAboutBtnTappedCommand()
+        public async void OnAboutBtnTappedCommand()
         {
-
+            await page.Navigation.PushAsync(new InfoPage());
         }
     }
 }
