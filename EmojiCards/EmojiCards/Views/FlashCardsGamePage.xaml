@@ -33,7 +33,7 @@
                     IsVisible="{Binding IsHelperVisible}"/>
                 <Button
                     Text="{xct:Translate FlashCardsGameButtonHelp}"
-                    BackgroundColor="Coral"
+                    BackgroundColor="{StaticResource EmojiCardsOrange}"
                     TextColor="Black"
                     IsVisible="{Binding IsHelpBtnVisible}"
                     Command="{Binding HelpNeededCommand}"/>

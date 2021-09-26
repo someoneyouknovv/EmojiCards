@@ -39,6 +39,7 @@
                 HorizontalOptions="CenterAndExpand"
                 Orientation="Horizontal">
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsYellow}"
                     Margin="10,0,10,0"
                     Text="{xct:Translate NoteDetailsPageBtnUpdateNote}"
                     VerticalOptions="Fill"
@@ -47,6 +48,7 @@
                     CommandParameter="{Binding BindingContext.CurrentNote}"/>
 
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsPink}"
                     Margin="10,0,10,0"
                     Text="{xct:Translate NoteDetailsPageBtnDeleteNote}"
                     VerticalOptions="Fill"

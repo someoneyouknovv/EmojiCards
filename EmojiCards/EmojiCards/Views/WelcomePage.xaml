@@ -16,11 +16,13 @@
                 BackgroundColor="Transparent"/>
 
             <Button
+                BackgroundColor="{StaticResource EmojiCardsPink}"
                 Text="{xct:Translate WelcomePageBtnContinue}"
                 VerticalOptions="CenterAndExpand"
                 Command="{Binding ContinueBtnTappedCommand}"/>
 
             <Button
+                BackgroundColor="{StaticResource EmojiCardsBlue}"
                 Text="{xct:Translate WelcomePageBtnChangeLang}"
                 VerticalOptions="CenterAndExpand"
                 Command="{Binding ChangeLangBtnTappedCommand}"/>

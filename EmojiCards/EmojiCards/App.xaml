@@ -15,6 +15,12 @@
                 <Setter Property="Margin" Value="50,0,50,0"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
+
+            <Color x:Key="EmojiCardsPink">#ff5994</Color>
+            <Color x:Key="EmojiCardsOrange">#ff9668</Color>
+            <Color x:Key="EmojiCardsYellow">#edff8f</Color>
+            <Color x:Key="EmojiCardsGreen">#84ff9f</Color>
+            <Color x:Key="EmojiCardsBlue">#82b6ff</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

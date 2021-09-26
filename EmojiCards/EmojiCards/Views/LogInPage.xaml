@@ -53,6 +53,7 @@
             <BoxView BackgroundColor="Transparent" HeightRequest="10"/>
 
             <Button 
+                BackgroundColor="{StaticResource EmojiCardsGreen}"
                 Text="{xct:Translate LogInPageBtnLogIn}"
                 VerticalOptions="Fill"
                 Command="{Binding LogInBtnClicked}"/>

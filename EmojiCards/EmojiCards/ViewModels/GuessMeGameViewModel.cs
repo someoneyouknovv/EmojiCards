@@ -64,23 +64,24 @@ namespace EmojiCards.ViewModels
 
         public void OnPreviousVoiceCardBtnTapped(object obj)
         {
-            if (CurrentCard.ID == 1)
+            var currInt = (int)obj;
+            if (currInt == 1)
             {
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = GuessMeCardsCollection.OrderByDescending(i => i.ID).
-                Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
+            CurrentCard = GuessMeCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();   
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
         {
-            if (CurrentCard.ID == 10)
+            var currInt = (int)obj;
+            if (currInt== 10)
             {
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = GuessMeCardsCollection.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
+            CurrentCard = GuessMeCardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
         }
 
         public async void DisplayPopUps()

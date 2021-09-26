@@ -24,6 +24,7 @@
                 Text="{Binding FirebaseUser.Password}" />
 
             <Button 
+                BackgroundColor="{StaticResource EmojiCardsOrange}"
                 Text="{xct:Translate SignUpPageBtnSignUp}"
                 Command="{Binding SignUpBtnClicked}"
                 VerticalOptions="Fill"/>

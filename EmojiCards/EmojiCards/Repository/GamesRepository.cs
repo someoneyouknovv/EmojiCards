@@ -144,9 +144,9 @@ namespace EmojiCards.Repository
                 new GuessMeCardModel
                 {
                     ID = 8,
-                    EmojiName = AppResources.SharedModelHappy,
-                    CorrectEmoji = "happy.png",
-                    WrongEmoji = "sad.png"
+                    EmojiName = AppResources.SharedModelSmiling,
+                    CorrectEmoji = "smiling.png",
+                    WrongEmoji = "cry.png"
                 },
                 new GuessMeCardModel
                 {

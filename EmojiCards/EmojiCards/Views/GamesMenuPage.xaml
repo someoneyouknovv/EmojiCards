@@ -23,14 +23,17 @@
             <StackLayout
                 VerticalOptions="CenterAndExpand">
                 <Button 
+                    BackgroundColor="{StaticResource EmojiCardsPink}"
                     Text="{xct:Translate GamesMenuPageButtonSoundCards}"
                     Command="{Binding SoundCardsBtnCommand}" />
 
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsOrange}"
                     Text="{xct:Translate GamesMenuPageButtonFlashCards}"
                     Command="{Binding FlashCardsBtnCommand}" />
 
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsYellow}"
                     Text="{xct:Translate GamesMenuPageButtonGuessMe}"
                     Command="{Binding GuessMeBtnCommand}"/>
             </StackLayout>

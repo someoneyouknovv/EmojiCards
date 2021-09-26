@@ -39,6 +39,7 @@
             <BoxView Color="Transparent" HeightRequest="10"/>
             
             <Button 
+                BackgroundColor="{StaticResource EmojiCardsYellow}"
                 Text="{xct:Translate ChangeLanguagePageBtnSave}"
                 Command="{Binding UpdateLangugeBtnClicked}"
                 VerticalOptions="Fill"/>

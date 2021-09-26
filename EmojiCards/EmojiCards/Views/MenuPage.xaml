@@ -32,14 +32,17 @@
             <StackLayout
                 VerticalOptions="CenterAndExpand">
                 <Button 
+                    BackgroundColor="{StaticResource EmojiCardsBlue}"
                     Text="{xct:Translate MenuPageBtnGames}"
                     Command="{Binding GamesBtnTappedCommand}" />
 
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsGreen}"
                     Text="{xct:Translate MenuPageBtnNotes}"
                     Command="{Binding NotesBtnTappedCommand}" />
 
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsYellow}"
                     Text="{xct:Translate MenuPageBtnInfo}"
                     Command="{Binding AboutBtnTappedCommand}"/>
             </StackLayout>

@@ -53,23 +53,24 @@ namespace EmojiCards.ViewModels
 
         public void OnPreviousVoiceCardBtnTapped(object obj)
         {
-            if (CurrentCard.ID == 1)
+            var currInt = (int)obj;
+            if (currInt == 1)
             {
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsCollection.OrderByDescending(i => i.ID).
-                Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
+            CurrentCard = CardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
         {
-            if(CurrentCard.ID == 10)
+            var currInt = (int)obj;
+            if (currInt == 10)
             {
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsCollection.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
+            CurrentCard = CardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

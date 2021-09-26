@@ -35,10 +35,12 @@
                 Orientation="Horizontal">
                 
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsGreen}"
                     Margin="10,0,10,0"
                     Text="{xct:Translate SharedButtonAddNote}"
                     Command="{Binding AddNoteBtnTappedCommand}"/>
                 <Button 
+                    BackgroundColor="{StaticResource EmojiCardsBlue}"
                     Margin="10,0,10,0"
                     Text="{xct:Translate NotesPageButtonLogOut}"
                     Command="{Binding LogOutBtnClicked}"/>

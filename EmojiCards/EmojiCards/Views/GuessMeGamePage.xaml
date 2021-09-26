@@ -31,7 +31,7 @@
                 x:Name="VoiceButton"
                 Spacing="0"                               
                 Orientation="Horizontal"
-                BackgroundColor="Orange"
+                BackgroundColor="{StaticResource EmojiCardsOrange}"
                 xct:TouchEffect.NativeAnimation="True">
                 <Image
                     Aspect="AspectFit"

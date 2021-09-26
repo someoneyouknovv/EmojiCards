@@ -27,6 +27,7 @@
                 HorizontalOptions="CenterAndExpand"
                 Orientation="Horizontal">
                 <Button
+                    BackgroundColor="{StaticResource EmojiCardsOrange}"
                     Text="{xct:Translate SharedButtonAddNote}"
                     VerticalOptions="Fill"
                     HorizontalOptions="CenterAndExpand"
