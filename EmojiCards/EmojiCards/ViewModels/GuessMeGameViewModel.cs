@@ -7,26 +7,27 @@ using Prism.Navigation;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
 {
-    public class SoundCardsGameViewModel : BaseViewModel
+    public class GuessMeGameViewModel : BaseViewModel
     {
         private readonly IGamesRepository _gamesRepository;
 
-        private CardGameModel _currentCard = new CardGameModel();
-        public CardGameModel CurrentCard
+        private ObservableCollection<GuessMeCardModel> _guessMeCardsCollection;
+        public ObservableCollection<GuessMeCardModel> GuessMeCardsCollection
+        {
+            get => _guessMeCardsCollection;
+            set => SetProperty(ref _guessMeCardsCollection, value);
+        }
+
+        private GuessMeCardModel _currentCard = new GuessMeCardModel();
+        public GuessMeCardModel CurrentCard
         {
             get => _currentCard;
             set => SetProperty(ref _currentCard, value);
-        }
-
-        private ObservableCollection<CardGameModel> _cardsCollection = new ObservableCollection<CardGameModel>();
-        public ObservableCollection<CardGameModel> CardsCollection
-        {
-            get => _cardsCollection;
-            set => SetProperty(ref _cardsCollection, value);
         }
 
         private ICommand _voiceCommand;
@@ -38,11 +39,21 @@ namespace EmojiCards.ViewModels
         private ICommand _nextVoiceCardBtn;
         public ICommand NextVoiceCardBtn => _nextVoiceCardBtn ??= new DelegateCommand<object>(OnNextVoiceCardBtnTapped);
 
-        public SoundCardsGameViewModel(Page page) : base(page)
-        {
+        private ICommand _correctEmojiCommand;
+        public ICommand CorrectEmojiCommand => _correctEmojiCommand ??= new DelegateCommand(OnCorrectEmojiCommand);
 
+        private ICommand _wrongEmojiCommand;
+        public ICommand WrongEmojiCommand => _wrongEmojiCommand ??= new DelegateCommand(OnWrongEmojiCommand);
+
+        public GuessMeGameViewModel(Page page) : base(page)
+        {
             _gamesRepository = new GamesRepository();
-            CardsCollection = _gamesRepository.GetAllCards();
+            GuessMeCardsCollection = _gamesRepository.GetAllGuessMeCards();
+        }
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            CurrentCard = GuessMeCardsCollection.FirstOrDefault();
         }
 
         public void OnVoiceCommandTapped(object obj)
@@ -58,35 +69,29 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsCollection.OrderByDescending(i => i.ID).
+            CurrentCard = GuessMeCardsCollection.OrderByDescending(i => i.ID).
                 Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
         {
-            if(CurrentCard.ID == 10)
+            if (CurrentCard.ID == 10)
             {
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsCollection.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-            CurrentCard = CardsCollection.FirstOrDefault();
+            CurrentCard = GuessMeCardsCollection.Where(c => c.ID > CurrentCard.ID).FirstOrDefault();
         }
 
         public async void DisplayPopUps()
         {
-            if(CurrentCard.ID == 1)
+            if (CurrentCard.ID == 1)
             {
                 await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertCantGoBack,
                     AppResources.SharedAlertOk);
             }
-            else if(CurrentCard.ID == 10)
+            else if (CurrentCard.ID == 10)
             {
                 var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertPlayAgain,
@@ -96,8 +101,18 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
-                CurrentCard = CardsCollection.FirstOrDefault();
+                CurrentCard = GuessMeCardsCollection.FirstOrDefault();
             }
+        }
+
+        public async void OnCorrectEmojiCommand()
+        {
+            await page.DisplayToastAsync("YAAAAAY");
+        }
+
+        public async void OnWrongEmojiCommand()
+        {
+            await page.DisplayToastAsync("NOOOO");
         }
     }
 }

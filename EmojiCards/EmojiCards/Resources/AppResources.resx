@@ -150,6 +150,9 @@
   <data name="GamesMenuPageTitle" xml:space="preserve">
     <value>Games menu</value>
   </data>
+  <data name="GuessMePageTitle" xml:space="preserve">
+    <value>Guess me!</value>
+  </data>
   <data name="InfoPageLabelInfo" xml:space="preserve">
     <value>EmojiCards is a creative and educational application that helps children with autism better understand and recognise feelings. The games that it contains are made as simple as posible so that the child could play alone. It also contains a parent- mode that helps them to write and monitor their child's progress while using the application.</value>
   </data>
@@ -237,6 +240,9 @@
   <data name="SharedAlertAlert" xml:space="preserve">
     <value>Alert!</value>
   </data>
+  <data name="SharedAlertCantGoBack" xml:space="preserve">
+    <value>You can't go back.</value>
+  </data>
   <data name="SharedAlertFIllBlanks" xml:space="preserve">
     <value>Please fill all the blanks!</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="SharedAlertOk" xml:space="preserve">
     <value>Ok</value>
+  </data>
+  <data name="SharedAlertPlayAgain" xml:space="preserve">
+    <value>Do you want to play again?</value>
   </data>
   <data name="SharedAlertRegistrationSucceeded" xml:space="preserve">
     <value>Registration succeeded! Please check your email address for verification.</value>
@@ -320,12 +329,6 @@
   </data>
   <data name="SignUpPageTitle" xml:space="preserve">
     <value>Sign up</value>
-  </data>
-  <data name="SoundCardsGamePageAlertCantGoBack" xml:space="preserve">
-    <value>You can't go back.</value>
-  </data>
-  <data name="SoundCardsGamePageAlertPlayAgain" xml:space="preserve">
-    <value>Do you want to play again?</value>
   </data>
   <data name="SoundCardsGamePageTitle" xml:space="preserve">
     <value>Sound cards</value>

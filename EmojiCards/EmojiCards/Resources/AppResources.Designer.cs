@@ -160,6 +160,15 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Guess me!.
+        /// </summary>
+        internal static string GuessMePageTitle {
+            get {
+                return ResourceManager.GetString("GuessMePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EmojiCards is a creative and educational application that helps children with autism better understand and recognise feelings. The games that it contains are made as simple as posible so that the child could play alone. It also contains a parent- mode that helps them to write and monitor their child&apos;s progress while using the application..
         /// </summary>
         internal static string InfoPageLabelInfo {
@@ -421,6 +430,15 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can&apos;t go back..
+        /// </summary>
+        internal static string SharedAlertCantGoBack {
+            get {
+                return ResourceManager.GetString("SharedAlertCantGoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill all the blanks!.
         /// </summary>
         internal static string SharedAlertFIllBlanks {
@@ -444,6 +462,15 @@ namespace EmojiCards.Resources {
         internal static string SharedAlertOk {
             get {
                 return ResourceManager.GetString("SharedAlertOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to play again?.
+        /// </summary>
+        internal static string SharedAlertPlayAgain {
+            get {
+                return ResourceManager.GetString("SharedAlertPlayAgain", resourceCulture);
             }
         }
         
@@ -669,24 +696,6 @@ namespace EmojiCards.Resources {
         internal static string SignUpPageTitle {
             get {
                 return ResourceManager.GetString("SignUpPageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You can&apos;t go back..
-        /// </summary>
-        internal static string SoundCardsGamePageAlertCantGoBack {
-            get {
-                return ResourceManager.GetString("SoundCardsGamePageAlertCantGoBack", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Do you want to play again?.
-        /// </summary>
-        internal static string SoundCardsGamePageAlertPlayAgain {
-            get {
-                return ResourceManager.GetString("SoundCardsGamePageAlertPlayAgain", resourceCulture);
             }
         }
         

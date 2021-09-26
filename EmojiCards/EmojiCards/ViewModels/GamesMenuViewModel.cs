@@ -30,9 +30,9 @@ namespace EmojiCards.ViewModels
             await page.Navigation.PushAsync(new FlashCardsGamePage());
         }
 
-        public void OnGuessMeBtnTappedCommand()
+        public async void OnGuessMeBtnTappedCommand()
         {
-
+            await page.Navigation.PushAsync(new GuessMeGamePage());
         }
     }
 }

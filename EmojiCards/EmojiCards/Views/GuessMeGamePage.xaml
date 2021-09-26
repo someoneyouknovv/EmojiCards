@@ -1,61 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmojiCards.Views.GuessMeGamePage"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:model="clr-namespace:EmojiCards.Models"
-             x:Class="EmojiCards.Views.SoundCardsGamePage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
-             Title="{xct:Translate SoundCardsGamePageTitle}">
-
+             Title="{xct:Translate GuessMePageTitle}">
     <ContentPage.Content>
         <StackLayout
-            HorizontalOptions="CenterAndExpand" 
+            HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand">
-            <StackLayout 
-                Orientation="Vertical"
-                Padding="50,0,50,0">
+            <StackLayout
+                Orientation="Horizontal">
+                <ImageButton
+                    WidthRequest="170"
+                    BackgroundColor="Transparent"
+                    Aspect="AspectFit"
+                    Source="{Binding CurrentCard.CorrectEmoji}"
+                    Command="{Binding CorrectEmojiCommand}"/>
+
+                <ImageButton
+                    WidthRequest="170"
+                    BackgroundColor="Transparent"
+                    Aspect="AspectFit"
+                    Source="{Binding CurrentCard.WrongEmoji}"
+                    Command="{Binding WrongEmojiCommand}"/>
+            </StackLayout>
+
+            <StackLayout
+                x:Name="VoiceButton"
+                Spacing="0"                               
+                Orientation="Horizontal"
+                BackgroundColor="Orange"
+                xct:TouchEffect.NativeAnimation="True">
                 <Image
                     Aspect="AspectFit"
-                    Source="{Binding CurrentCard.ImageSource}"/>
+                    Source="sound_left.png"
+                    HeightRequest="50"/>
 
-                <StackLayout
-                    x:Name="VoiceButton"
-                    Spacing="0"                               
-                    Orientation="Horizontal"
-                    BackgroundColor="Orange"
-                    xct:TouchEffect.NativeAnimation="True">
-                    <Image
-                        Aspect="AspectFit"
-                        Source="sound_left.png"
-                        HeightRequest="50"/>
+                <Label
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    TextColor="Black"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    FontSize="30"
+                    Text="{Binding CurrentCard.EmojiName}"/>
 
-                    <Label
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Center"
-                        TextColor="Black"
-                        VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        FontSize="30"
-                        Text="{Binding CurrentCard.EmojiName}"/>
+                <Image
+                    Aspect="AspectFit"
+                    Source="sound_right.png"
+                    HeightRequest="50"/>
 
-                    <Image
-                        Aspect="AspectFit"
-                        Source="sound_right.png"
-                        HeightRequest="50"/>
-
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer 
-                            Command="{Binding VoiceCommand}" 
-                            CommandParameter="{Binding CurrentCard.ID}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding VoiceCommand}" 
+                        CommandParameter="{Binding CurrentCard.ID}"/>
+                </StackLayout.GestureRecognizers>
             </StackLayout>
 
             <BoxView Color="Transparent" HeightRequest="10"/>
 
             <StackLayout
-                x:Name="LeftRightButtons"
+                
                 Orientation="Horizontal"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="EndAndExpand">

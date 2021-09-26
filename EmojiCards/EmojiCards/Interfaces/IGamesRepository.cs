@@ -6,5 +6,8 @@ namespace EmojiCards.Interfaces
     public interface IGamesRepository
     {
         ObservableCollection<CardGameModel> GetAllCards();
+
+        ObservableCollection<GuessMeCardModel> GetAllGuessMeCards();
+
     }
 }

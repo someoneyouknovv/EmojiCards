@@ -150,6 +150,9 @@
   <data name="GamesMenuPageTitle" xml:space="preserve">
     <value>Мени со игри</value>
   </data>
+  <data name="GuessMePageTitle" xml:space="preserve">
+    <value>Погоди ме!</value>
+  </data>
   <data name="InfoPageLabelInfo" xml:space="preserve">
     <value>EmojiCards е креативна и едукативна апликација која им помага на децата со аутизам подобро да ги разберат и препознаат чувствата. Игрите што ги содржи се што е можно поедноставни за детето да може да игра само. Исто така, содржи режим на родители што им помага да го документираат и да го следат напредокот на своето дете при користење на апликацијата.</value>
   </data>
@@ -237,6 +240,9 @@
   <data name="SharedAlertAlert" xml:space="preserve">
     <value>Внимание!</value>
   </data>
+  <data name="SharedAlertCantGoBack" xml:space="preserve">
+    <value>Не можете да се движете назад.</value>
+  </data>
   <data name="SharedAlertFIllBlanks" xml:space="preserve">
     <value>Ве молиме потполнете ги празните места!</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="SharedAlertOk" xml:space="preserve">
     <value>Во ред</value>
+  </data>
+  <data name="SharedAlertPlayAgain" xml:space="preserve">
+    <value>Дали сакате да играте повторно?</value>
   </data>
   <data name="SharedAlertRegistrationSucceeded" xml:space="preserve">
     <value>Успешна регистрација! Проверете ја Вашата емаил адреса за верификација.</value>
@@ -320,12 +329,6 @@
   </data>
   <data name="SignUpPageTitle" xml:space="preserve">
     <value>Регистрација</value>
-  </data>
-  <data name="SoundCardsGamePageAlertCantGoBack" xml:space="preserve">
-    <value>Не можете да се движете назад.</value>
-  </data>
-  <data name="SoundCardsGamePageAlertPlayAgain" xml:space="preserve">
-    <value>Дали сакате да играте повторно?</value>
   </data>
   <data name="SoundCardsGamePageTitle" xml:space="preserve">
     <value>Звучни картички</value>
