@@ -16,6 +16,9 @@ namespace EmojiCards.ViewModels
         private ICommand _guessMeBtnCommand;
         public ICommand GuessMeBtnCommand => _guessMeBtnCommand ??= new DelegateCommand(OnGuessMeBtnTappedCommand);
 
+        private ICommand _memoryGameBtnCommand;
+        public ICommand MemoryGameBtnCommand => _memoryGameBtnCommand ??= new DelegateCommand(OnMemoryGameBtnTappedCommand);
+
         public GamesMenuViewModel(Page page) : base(page)
         {
         }
@@ -33,6 +36,11 @@ namespace EmojiCards.ViewModels
         public async void OnGuessMeBtnTappedCommand()
         {
             await page.Navigation.PushAsync(new GuessMeGamePage());
+        }
+
+        public async void OnMemoryGameBtnTappedCommand()
+        {
+            await page.Navigation.PushAsync(new MemoryGamePage());
         }
     }
 }

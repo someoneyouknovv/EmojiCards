@@ -188,4 +188,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\question_mark.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\background_firebaseauth.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emoji_cards_logo.png" />
+  </ItemGroup>
 </Project>

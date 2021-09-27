@@ -36,6 +36,11 @@
                     BackgroundColor="{StaticResource EmojiCardsYellow}"
                     Text="{xct:Translate GamesMenuPageButtonGuessMe}"
                     Command="{Binding GuessMeBtnCommand}"/>
+
+                <Button
+                    BackgroundColor="{StaticResource EmojiCardsGreen}"
+                    Text="Memory game"
+                    Command="{Binding MemoryGameBtnCommand}"/>
             </StackLayout>
 
         </StackLayout>

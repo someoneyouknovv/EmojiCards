@@ -12,7 +12,7 @@
 
             <Image 
                 Aspect="AspectFit"
-                Source="welcome_page_kids.png"
+                Source="emoji_cards_logo.png"
                 BackgroundColor="Transparent"/>
 
             <Button
@@ -22,7 +22,7 @@
                 Command="{Binding ContinueBtnTappedCommand}"/>
 
             <Button
-                BackgroundColor="{StaticResource EmojiCardsBlue}"
+                BackgroundColor="{StaticResource EmojiCardsGreen}"
                 Text="{xct:Translate WelcomePageBtnChangeLang}"
                 VerticalOptions="CenterAndExpand"
                 Command="{Binding ChangeLangBtnTappedCommand}"/>

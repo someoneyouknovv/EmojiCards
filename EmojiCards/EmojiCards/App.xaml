@@ -6,7 +6,7 @@
         <ResourceDictionary>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True" >
                 <Setter Property="BackgroundImageSource" Value="background.jpg" />
-                <Setter Property="Padding" Value="10,20,10,20"/>
+                <Setter Property="Padding" Value="15,20,15,20"/>
             </Style>
 
             <Style TargetType="Button">

@@ -5,6 +5,7 @@
              x:Class="EmojiCards.Views.LogInPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
+             BackgroundImageSource="background_firebaseauth.jpg"
              Title="{xct:Translate LogInPageTitle}">
     <ContentPage.Content>
         <StackLayout
