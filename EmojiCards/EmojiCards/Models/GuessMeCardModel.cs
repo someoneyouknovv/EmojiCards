@@ -31,5 +31,12 @@ namespace EmojiCards.Models
             get => _wrongEmoji;
             set => SetProperty(ref _wrongEmoji, value);
         }
+
+        private string _soundSource;
+        public string SoundSource
+        {
+            get => _soundSource;
+            set => SetProperty(ref _soundSource, value);
+        }
     }
 }

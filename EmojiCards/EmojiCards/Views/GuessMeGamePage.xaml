@@ -13,6 +13,7 @@
             <StackLayout
                 Orientation="Horizontal">
                 <ImageButton
+                    xct:TouchEffect.NativeAnimation="True"
                     WidthRequest="170"
                     BackgroundColor="Transparent"
                     Aspect="AspectFit"
@@ -20,6 +21,7 @@
                     Command="{Binding CorrectEmojiCommand}"/>
 
                 <ImageButton
+                    xct:TouchEffect.NativeAnimation="True"
                     WidthRequest="170"
                     BackgroundColor="Transparent"
                     Aspect="AspectFit"
@@ -55,14 +57,13 @@
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding VoiceCommand}" 
-                        CommandParameter="{Binding CurrentCard.ID}"/>
+                        CommandParameter="{Binding CurrentCard}"/>
                 </StackLayout.GestureRecognizers>
             </StackLayout>
 
             <BoxView Color="Transparent" HeightRequest="10"/>
 
             <StackLayout
-                
                 Orientation="Horizontal"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="EndAndExpand">

@@ -4,12 +4,13 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="EmojiCards.Views.MemoryGamePage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+            VerticalOptions="CenterAndExpand">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -20,42 +21,107 @@
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="0"
                     Grid.Column="0"
+                    BackgroundColor="Transparent"
                     Source="{Binding Image1}"
-                    Command="{Binding Image1Command}"
-                    IsVisible="{Binding IsVisibleImage1}"/>
+                    Command="{Binding Image1Command}" />
                 <ImageButton
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="0"
                     Grid.Column="1"
+                    BackgroundColor="Transparent"
                     Source="{Binding Image2}"
-                    Command="{Binding Image2Command}"
-                    IsVisible="{Binding IsVisibleImage2}"/>
+                    Command="{Binding Image2Command}" />
                 <ImageButton
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="1"
                     Grid.Column="0"
+                    BackgroundColor="Transparent"
                     Source="{Binding Image3}"
                     Command="{Binding Image3Command}"/>
                 <ImageButton
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Source="{Binding Image4}"
+                    BackgroundColor="Transparent"
+                    Source="{Binding Image4}" 
                     Command="{Binding Image4Command}"/>
-                <ImageButton
-                    xct:TouchEffect.NativeAnimation="True"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Source="{Binding Image5}"
-                    Command="{Binding Image5Command}"/>
-                <ImageButton
-                    xct:TouchEffect.NativeAnimation="True"
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Source="{Binding Image6}"
-                    Command="{Binding Image6Command}"/>
             </Grid>
-            
+
+            <StackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Button
+                    Text="guess the emoji"
+                    BackgroundColor="{StaticResource EmojiCardsYellow}"
+                    Command="{Binding UnvealCardsCommand}"
+                    IsEnabled="{Binding IsUnvealCardsBtnEnabled}"/>
+                
+                <BoxView Color="Transparent" HeightRequest="10"/>
+
+                <StackLayout
+                    x:Name="VoiceButton"
+                    Spacing="0"                               
+                    Orientation="Horizontal"
+                    BackgroundColor="{StaticResource EmojiCardsOrange}"
+                    xct:TouchEffect.NativeAnimation="True">
+                    <Image
+                        Aspect="AspectFit"
+                        Source="sound_left.png"
+                        HeightRequest="50"/>
+
+                    <Label
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Black"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="30"
+                        Text="{Binding CurrentCard.EmojiName}"/>
+
+                    <Image
+                        Aspect="AspectFit"
+                        Source="sound_right.png"
+                        HeightRequest="50"/>
+
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding VoiceCommand}" 
+                            CommandParameter="{Binding CurrentCard}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand">
+
+                <Image
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Aspect="AspectFit"
+                    Source="leftbutton.png"
+                    xct:TouchEffect.NativeAnimation="True" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding PreviousVoiceCardBtn}"
+                            CommandParameter="{Binding CurrentCard}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                    HeightRequest="70"
+                    WidthRequest="70"
+                    Aspect="AspectFit"
+                    Source="rightbutton.png"
+                    xct:TouchEffect.NativeAnimation="True">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            NumberOfTapsRequired="1"
+                            Command="{Binding NextVoiceCardBtn}"
+                            CommandParameter="{Binding CurrentCard}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

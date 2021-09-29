@@ -47,7 +47,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer 
                             Command="{Binding VoiceCommand}" 
-                            CommandParameter="{Binding CurrentCard.ID}"/>
+                            CommandParameter="{Binding CurrentCard}"/>
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
             </StackLayout>

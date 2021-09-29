@@ -31,7 +31,7 @@ namespace EmojiCards.ViewModels
         }
 
         private ICommand _voiceCommand;
-        public ICommand VoiceCommand => _voiceCommand ??= new DelegateCommand<object>(OnVoiceCommandTapped);
+        public ICommand VoiceCommand => _voiceCommand ??= new DelegateCommand<GuessMeCardModel>(OnVoiceCommandTapped);
 
         private ICommand _previousVoiceCardBtn;
         public ICommand PreviousVoiceCardBtn => _previousVoiceCardBtn ??= new DelegateCommand<object>(OnPreviousVoiceCardBtnTapped);
@@ -56,10 +56,11 @@ namespace EmojiCards.ViewModels
             CurrentCard = GuessMeCardsCollection.FirstOrDefault();
         }
 
-        public void OnVoiceCommandTapped(object obj)
+        public void OnVoiceCommandTapped(GuessMeCardModel currentCard)
         {
-            var id = (int)obj;
-            //DependencyService.Get<IAudio>().PlayAudioFile("srekjen.mp3");
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load(currentCard.SoundSource);
+            player.Play();
         }
 
         public void OnPreviousVoiceCardBtnTapped(object obj)

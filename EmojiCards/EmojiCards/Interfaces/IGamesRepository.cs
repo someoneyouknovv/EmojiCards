@@ -9,5 +9,7 @@ namespace EmojiCards.Interfaces
 
         ObservableCollection<GuessMeCardModel> GetAllGuessMeCards();
 
+        ObservableCollection<MemoryCardModel> GetAllMemoryCards();
+
     }
 }

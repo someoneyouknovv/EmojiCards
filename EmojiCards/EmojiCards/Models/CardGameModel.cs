@@ -1,5 +1,6 @@
 ﻿using Prism.Mvvm;
 
+
 namespace EmojiCards.Models
 {
     public class CardGameModel : BindableBase
@@ -23,6 +24,13 @@ namespace EmojiCards.Models
         {
             get => _imageSource;
             set => SetProperty(ref _imageSource, value);
+        }
+
+        private string _soundSource;
+        public string SoundSource
+        {
+            get => _soundSource;
+            set => SetProperty(ref _soundSource, value);
         }
     }
 }

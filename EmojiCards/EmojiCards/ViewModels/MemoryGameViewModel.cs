@@ -1,9 +1,11 @@
 ﻿using EmojiCards.Interfaces;
 using EmojiCards.Models;
 using EmojiCards.Repository;
+using EmojiCards.Resources;
 using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -14,7 +16,12 @@ namespace EmojiCards.ViewModels
     {
         private readonly IGamesRepository _gamesRepository;
 
-        private ObservableCollection<CardGameModel> _cardsCollection = new ObservableCollection<CardGameModel>();
+        private MemoryCardModel _currentCard;
+        public MemoryCardModel CurrentCard
+        {
+            get => _currentCard;
+            set => SetProperty(ref _currentCard, value);
+        }
 
         private string _image1;
         public string Image1
@@ -44,38 +51,18 @@ namespace EmojiCards.ViewModels
             set => SetProperty(ref _image4, value);
         }
 
-        private string _image5;
-        public string Image5
+        private bool _isUnvealCardsBtnEnabled = true;
+        public bool IsUnvealCardsBtnEnabled
         {
-            get => _image5;
-            set => SetProperty(ref _image5, value);
+            get => _isUnvealCardsBtnEnabled;
+            set => SetProperty(ref _isUnvealCardsBtnEnabled, value);
         }
 
-        private string _image6;
-        public string Image6
+        private ObservableCollection<MemoryCardModel> _memoryCardsCollection = new ObservableCollection<MemoryCardModel>();
+        public ObservableCollection<MemoryCardModel> MemoryCardsCollection
         {
-            get => _image6;
-            set => SetProperty(ref _image6, value);
-        }
-
-        private string _firstCard;
-        public string FirstCard
-        {
-            get => _firstCard;
-            set => SetProperty(ref _firstCard, value);
-        }
-
-        private string _secondCard;
-        public string SecondCard
-        {
-            get => _secondCard;
-            set => SetProperty(ref _secondCard, value);
-        }
-
-        public ObservableCollection<CardGameModel> CardsCollection
-        {
-            get => _cardsCollection;
-            set => SetProperty(ref _cardsCollection, value);
+            get => _memoryCardsCollection;
+            set => SetProperty(ref _memoryCardsCollection, value);
         }
 
         private bool _isVisibleImage1 = true;
@@ -92,6 +79,9 @@ namespace EmojiCards.ViewModels
             set => SetProperty(ref _isVisibleImage2, value);
         }
 
+        private ICommand _unvealCardsCommand;
+        public ICommand UnvealCardsCommand => _unvealCardsCommand ??= new DelegateCommand(OnUnvealCardsCommandAsync);
+
         private ICommand _image1Command;
         public ICommand Image1Command => _image1Command ??= new DelegateCommand(OnImage1Command);
 
@@ -104,33 +94,47 @@ namespace EmojiCards.ViewModels
         private ICommand _image4Command;
         public ICommand Image4Command => _image4Command ??= new DelegateCommand(OnImage4Command);
 
-        private ICommand _image5Command;
-        public ICommand Image5Command => _image5Command ??= new DelegateCommand(OnImage5Command);
+        private ICommand _voiceCommand;
+        public ICommand VoiceCommand => _voiceCommand ??= new DelegateCommand<MemoryCardModel>(OnVoiceCommandTapped);
 
-        private ICommand _image6Command;
-        public ICommand Image6Command => _image6Command ??= new DelegateCommand(OnImage6Command);
+        private ICommand _previousVoiceCardBtn;
+        public ICommand PreviousVoiceCardBtn => _previousVoiceCardBtn ??= new DelegateCommand<MemoryCardModel>(OnPreviousVoiceCardBtnTapped);
+
+        private ICommand _nextVoiceCardBtn;
+        public ICommand NextVoiceCardBtn => _nextVoiceCardBtn ??= new DelegateCommand<MemoryCardModel>(OnNextVoiceCardBtnTapped);
+
 
         public MemoryGameViewModel(Page page) : base(page)
         {
             _gamesRepository = new GamesRepository();
-            CardsCollection = _gamesRepository.GetAllCards();
+            _memoryCardsCollection = _gamesRepository.GetAllMemoryCards();
         }
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            Image1 = Image2 = Image3 = Image4 = Image5 = Image6 = "question_mark.png";
+            Image1 = Image2 = Image3 = Image4  = "question_mark.png";
+            CurrentCard = MemoryCardsCollection.First();
         }
 
+        public async void OnUnvealCardsCommandAsync()
+        {
+            Image1 = CurrentCard.ImageSource1;
+            Image2 = CurrentCard.ImageSource2;
+            Image3 = CurrentCard.ImageSource3;
+            Image4 = CurrentCard.ImageSource4;
+
+            await Task.Delay(3000);
+
+            Image1 = Image2 = Image3 = Image4 = "question_mark.png";
+            IsUnvealCardsBtnEnabled = false;
+        }
 
         public void OnImage1Command()
         {
-            Image1 = "happy.png";
-            CheckIfEqual();
         }
         public void OnImage2Command()
         {
-            Image2 = "sad.png";
-            CheckIfEqual();
+
         }
         public void OnImage3Command()
         {
@@ -140,29 +144,57 @@ namespace EmojiCards.ViewModels
         {
 
         }
-        public void OnImage5Command()
-        {
 
+        public void OnVoiceCommandTapped(MemoryCardModel currentCard)
+        {
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load(currentCard.SoundSource);
+            player.Play();
         }
-        public void OnImage6Command()
-        {
 
-        }
-
-        public async void CheckIfEqual()
+        public void OnPreviousVoiceCardBtnTapped(MemoryCardModel currentCards)
         {
-            if(Image1 == Image2)
+            if (currentCards.ID == 1)
             {
-                await Task.Delay(1000);
-                IsVisibleImage1 = false;
-                IsVisibleImage2 = false;
+                DisplayPopUps();
+                return;
             }
-            else
+            IsUnvealCardsBtnEnabled = true;
+            CurrentCard = MemoryCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currentCards.ID).FirstOrDefault();
+        }
+
+        public void OnNextVoiceCardBtnTapped(MemoryCardModel currentCards)
+        {
+            if (currentCards.ID == 10)
             {
-                await Task.Delay(1000);
-                Image1 = "question_mark.png";
-                Image2 = "question_mark.png";
+                DisplayPopUps();
+                return;
+            }
+            IsUnvealCardsBtnEnabled = true;
+            CurrentCard = MemoryCardsCollection.Where(c => c.ID > currentCards.ID).FirstOrDefault();
+        }
+
+        public async void DisplayPopUps()
+        {
+            if (CurrentCard.ID == 1)
+            {
+                await page.DisplayAlert(AppResources.SharedAlertAlert,
+                    AppResources.SharedAlertCantGoBack,
+                    AppResources.SharedAlertOk);
+            }
+            else if (CurrentCard.ID == 10)
+            {
+                var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
+                    AppResources.SharedAlertPlayAgain,
+                    AppResources.SharedAlertYes,
+                    AppResources.SharedAlertNo);
+
+                if (!result)
+                    await page.Navigation.PopAsync();
+
+                CurrentCard = MemoryCardsCollection.FirstOrDefault();
             }
         }
+
     }
 }

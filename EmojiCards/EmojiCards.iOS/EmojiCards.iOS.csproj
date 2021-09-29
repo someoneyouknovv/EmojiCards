@@ -63,7 +63,6 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AudioService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -193,5 +192,65 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\emoji_cards_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-confused.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-cry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-happy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-hungry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-sad.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-shy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-smiling.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-surprised.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-thirsty.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-angry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-confused.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-cry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-happy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-hungry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-sad.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-shy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-smiling.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-surprised.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\en-thirsty.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-angry.mp3" />
   </ItemGroup>
 </Project>
