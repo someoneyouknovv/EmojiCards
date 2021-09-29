@@ -17,25 +17,18 @@ namespace EmojiCards.ViewModels
         private readonly IGamesRepository _gamesRepository;
         private Random _random = new Random();
 
-        private string _imageSource;
-        public string ImageSource
+        private CardGameModel _currentCard = new CardGameModel();
+        public CardGameModel CurrentCard
         {
-            get => _imageSource;
-            set => SetProperty(ref _imageSource, value);
+            get => _currentCard;
+            set => SetProperty(ref _currentCard, value);
         }
 
-        private string _helper;
-        public string Helper
+        private bool _isEmojiNameVisible;
+        public bool IsEmojiNameVisible
         {
-            get => _helper;
-            set => SetProperty(ref _helper, value);
-        }
-
-        private bool _isHelperVisible;
-        public bool IsHelperVisible
-        {
-            get => _isHelperVisible;
-            set => SetProperty(ref _isHelperVisible, value);
+            get => _isEmojiNameVisible;
+            set => SetProperty(ref _isEmojiNameVisible, value);
         }
 
         private string _btnHelp;
@@ -65,6 +58,9 @@ namespace EmojiCards.ViewModels
         private ICommand _helpNeededCommand;
         public ICommand HelpNeededCommand => _helpNeededCommand ??= new DelegateCommand(OnHelpNeededCommand);
 
+        private ICommand _voiceCommand;
+        public ICommand VoiceCommand => _voiceCommand ??= new DelegateCommand<CardGameModel>(OnVoiceCommandTapped);
+
         public FlashCardsGameViewModel(Page page) : base(page)
         {
             _gamesRepository = new GamesRepository();
@@ -73,25 +69,30 @@ namespace EmojiCards.ViewModels
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            ImageSource = "question_mark.jpg";
-            Helper = AppResources.FlashCardsGamePageLabelHelper;
+            CurrentCard.ImageSource = "question_mark.jpg";
             IsHelpBtnVisible = false;
-            IsHelperVisible = true;
+            IsEmojiNameVisible = false;
         }
 
         public void OnQuestionMarkImageTapped()
         {
             var randomNumber = _random.Next(9) + 1;
-            ImageSource = CardsCollection.Where(c => c.ID == randomNumber).FirstOrDefault().ImageSource;
-            Helper = CardsCollection.Where(c => c.ID == randomNumber).FirstOrDefault().EmojiName;
+            CurrentCard = CardsCollection.Where(c => c.ID == randomNumber).FirstOrDefault();
             IsHelpBtnVisible = true;
-            IsHelperVisible = false;
+            IsEmojiNameVisible = false;
         }
 
         public void OnHelpNeededCommand()
         {
             IsHelpBtnVisible = false;
-            IsHelperVisible = true;
+            IsEmojiNameVisible = true;
+        }
+
+        public void OnVoiceCommandTapped(CardGameModel currentCard)
+        {
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load(currentCard.SoundSource);
+            player.Play();
         }
     }
 }

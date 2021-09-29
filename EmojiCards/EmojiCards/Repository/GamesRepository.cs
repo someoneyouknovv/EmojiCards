@@ -241,6 +241,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="cry.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "sad.png",
+                    CorrectImage="3",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-happy.mp3"
                     : "en-happy.mp3"
@@ -253,6 +254,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="thirsty.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "angry.png",
+                    CorrectImage="4",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-angry.mp3"
                     : "en-angry.mp3"
@@ -265,6 +267,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="confused.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "sad.png",
+                    CorrectImage="2",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-confused.mp3"
                     : "en-confused.mp3"
@@ -277,6 +280,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="cry.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "shy.png",
+                    CorrectImage="2",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-cry.mp3"
                     : "en-cry.mp3"
@@ -289,6 +293,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="cry.png",
                     ImageSource3 = "shy.png",
                     ImageSource4 = "sad.png",
+                    CorrectImage="1",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-hungry.mp3"
                     : "en-hungry.mp3"
@@ -301,6 +306,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="cry.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "surprised.png",
+                    CorrectImage="4",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-surprised.mp3"
                     : "en-surprised.mp3"
@@ -313,6 +319,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="cry.png",
                     ImageSource3 = "thirsty.png",
                     ImageSource4 = "surprised.png",
+                    CorrectImage="3",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-thirsty.mp3"
                     : "en-thirsty.mp3"
@@ -325,6 +332,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="thirsty.png",
                     ImageSource3 = "smiling.png",
                     ImageSource4 = "sad.png",
+                    CorrectImage="3",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-smiling.mp3"
                     : "en-smiling.mp3"
@@ -337,6 +345,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="shy.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "sad.png",
+                    CorrectImage="4",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-sad.mp3"
                     : "en-sad.mp3"
@@ -349,6 +358,7 @@ namespace EmojiCards.Repository
                     ImageSource2 ="shy.png",
                     ImageSource3 = "happy.png",
                     ImageSource4 = "sad.png",
+                    CorrectImage="2",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-shy.mp3"
                     : "en-shy.mp3"

@@ -9,6 +9,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -48,6 +49,16 @@ namespace EmojiCards.ViewModels
             _services = new DBFirebase();
         }
 
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            CurrentFirebaseUser = Singleton.Instance.CurrentFirebaseUser;
+
+            RefreshToken();
+            NotesCollection.Clear();
+            NotesCollection = _services.GetNotesCollection(CurrentFirebaseUser.Username);
+        }
+
         public async void OnLogOutBtnClicked()
         {
             var answer = await page.DisplayAlert
@@ -74,16 +85,6 @@ namespace EmojiCards.ViewModels
         {
             Singleton.Instance.CurrentFirebaseUser = CurrentFirebaseUser;
             await page.Navigation.PushAsync(new AddNewNotePage());
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-            CurrentFirebaseUser = Singleton.Instance.CurrentFirebaseUser;
-
-            RefreshToken();
-            NotesCollection.Clear();
-            NotesCollection = _services.GetNotesCollection(CurrentFirebaseUser.Username);
         }
 
         public async void RefreshToken()

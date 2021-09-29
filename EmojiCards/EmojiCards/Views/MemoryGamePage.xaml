@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="EmojiCards.Views.MemoryGamePage">
+             x:Class="EmojiCards.Views.MemoryGamePage"
+             Title="{xct:Translate MemoryGamePageTitle}">
     <ContentPage.Content>
         <StackLayout
             VerticalOptions="CenterAndExpand">
@@ -22,38 +23,49 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     BackgroundColor="Transparent"
+                    IsEnabled="{Binding AreImagesEnabled}"
                     Source="{Binding Image1}"
-                    Command="{Binding Image1Command}" />
+                    Command="{Binding ImageCommand}"
+                    CommandParameter="1"/>
+                
                 <ImageButton
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="0"
                     Grid.Column="1"
                     BackgroundColor="Transparent"
+                    IsEnabled="{Binding AreImagesEnabled}"
                     Source="{Binding Image2}"
-                    Command="{Binding Image2Command}" />
+                    Command="{Binding ImageCommand}" 
+                    CommandParameter="2"/>
+                
                 <ImageButton
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="1"
                     Grid.Column="0"
                     BackgroundColor="Transparent"
+                    IsEnabled="{Binding AreImagesEnabled}"
                     Source="{Binding Image3}"
-                    Command="{Binding Image3Command}"/>
+                    Command="{Binding ImageCommand}"
+                    CommandParameter="3"/>
+                
                 <ImageButton
                     xct:TouchEffect.NativeAnimation="True"
                     Grid.Row="1"
                     Grid.Column="1"
                     BackgroundColor="Transparent"
+                    IsEnabled="{Binding AreImagesEnabled}"
                     Source="{Binding Image4}" 
-                    Command="{Binding Image4Command}"/>
+                    Command="{Binding ImageCommand}"
+                    CommandParameter="4"/>
             </Grid>
 
             <StackLayout
                 HorizontalOptions="CenterAndExpand">
                 <Button
-                    Text="guess the emoji"
+                    Text="{xct:Translate MemoryGamePageButtonUnvealEmojis}"
                     BackgroundColor="{StaticResource EmojiCardsYellow}"
                     Command="{Binding UnvealCardsCommand}"
-                    IsEnabled="{Binding IsUnvealCardsBtnEnabled}"/>
+                    IsVisible="{Binding IsUnvealCardsBtnVisible}"/>
                 
                 <BoxView Color="Transparent" HeightRequest="10"/>
 

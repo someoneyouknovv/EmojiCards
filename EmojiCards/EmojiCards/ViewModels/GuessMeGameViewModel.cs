@@ -7,7 +7,6 @@ using Prism.Navigation;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
@@ -109,12 +108,16 @@ namespace EmojiCards.ViewModels
 
         public async void OnCorrectEmojiCommand()
         {
-            await page.DisplayToastAsync("YAAAAAY");
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("yay.mp3");
+            player.Play();
         }
 
         public async void OnWrongEmojiCommand()
         {
-            await page.DisplayToastAsync("NOOOO");
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("no.mp3");
+            player.Play();
         }
     }
 }

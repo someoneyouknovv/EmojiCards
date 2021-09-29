@@ -15,7 +15,7 @@
                 BackgroundColor="Transparent"
                 xct:TouchEffect.NativeAnimation="True"
                 xct:TouchEffect.Command="{Binding QuestionMarkImageCommand}"
-                Source="{Binding ImageSource}"
+                Source="{Binding CurrentCard.ImageSource}"
                 Aspect="AspectFit">
             </ImageButton>
 
@@ -23,14 +23,39 @@
                 VerticalOptions="EndAndExpand"
                 HorizontalOptions="CenterAndExpand">
 
-                <Label
-                    HorizontalTextAlignment="Center"
-                    BackgroundColor="AliceBlue"
-                    Opacity="0.5"
-                    FontSize="30"
-                    TextColor="Red"
-                    Text="{Binding Helper}"
-                    IsVisible="{Binding IsHelperVisible}"/>
+                <StackLayout
+                    IsVisible="{Binding IsEmojiNameVisible}"
+                    x:Name="VoiceButton"
+                    Spacing="0"                               
+                    Orientation="Horizontal"
+                    BackgroundColor="{StaticResource EmojiCardsOrange}"
+                    xct:TouchEffect.NativeAnimation="True">
+                    <Image
+                        Aspect="AspectFit"
+                        Source="sound_left.png"
+                        HeightRequest="50"/>
+
+                    <Label
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Black"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="30"
+                        Text="{Binding CurrentCard.EmojiName}"/>
+
+                    <Image
+                        Aspect="AspectFit"
+                        Source="sound_right.png"
+                        HeightRequest="50"/>
+                    
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding VoiceCommand}" 
+                            CommandParameter="{Binding CurrentCard}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
                 <Button
                     Text="{xct:Translate FlashCardsGameButtonHelp}"
                     BackgroundColor="{StaticResource EmojiCardsOrange}"

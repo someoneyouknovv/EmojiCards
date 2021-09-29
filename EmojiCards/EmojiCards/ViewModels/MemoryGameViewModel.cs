@@ -51,11 +51,18 @@ namespace EmojiCards.ViewModels
             set => SetProperty(ref _image4, value);
         }
 
-        private bool _isUnvealCardsBtnEnabled = true;
-        public bool IsUnvealCardsBtnEnabled
+        private bool _areImagesEnabled = false;
+        public bool AreImagesEnabled
         {
-            get => _isUnvealCardsBtnEnabled;
-            set => SetProperty(ref _isUnvealCardsBtnEnabled, value);
+            get => _areImagesEnabled;
+            set => SetProperty(ref _areImagesEnabled, value);
+        }
+
+        private bool _isUnvealCardsBtnVisible = true;
+        public bool IsUnvealCardsBtnVisible
+        {
+            get => _isUnvealCardsBtnVisible;
+            set => SetProperty(ref _isUnvealCardsBtnVisible, value);
         }
 
         private ObservableCollection<MemoryCardModel> _memoryCardsCollection = new ObservableCollection<MemoryCardModel>();
@@ -82,17 +89,8 @@ namespace EmojiCards.ViewModels
         private ICommand _unvealCardsCommand;
         public ICommand UnvealCardsCommand => _unvealCardsCommand ??= new DelegateCommand(OnUnvealCardsCommandAsync);
 
-        private ICommand _image1Command;
-        public ICommand Image1Command => _image1Command ??= new DelegateCommand(OnImage1Command);
-
-        private ICommand _image2Command;
-        public ICommand Image2Command => _image2Command ??= new DelegateCommand(OnImage2Command);
-
-        private ICommand _image3Command;
-        public ICommand Image3Command => _image3Command ??= new DelegateCommand(OnImage3Command);
-
-        private ICommand _image4Command;
-        public ICommand Image4Command => _image4Command ??= new DelegateCommand(OnImage4Command);
+        private ICommand _imageCommand;
+        public ICommand ImageCommand => _imageCommand ??= new DelegateCommand<string>(OnImageCommand);
 
         private ICommand _voiceCommand;
         public ICommand VoiceCommand => _voiceCommand ??= new DelegateCommand<MemoryCardModel>(OnVoiceCommandTapped);
@@ -126,24 +124,96 @@ namespace EmojiCards.ViewModels
             await Task.Delay(3000);
 
             Image1 = Image2 = Image3 = Image4 = "question_mark.png";
-            IsUnvealCardsBtnEnabled = false;
+            IsUnvealCardsBtnVisible = false;
         }
 
-        public void OnImage1Command()
+        public async void OnImageCommand(string imageID)
         {
-        }
-        public void OnImage2Command()
-        {
+            if (IsUnvealCardsBtnVisible)
+                return;
 
+            if (imageID.Equals("1"))
+            {
+                Image1 = CurrentCard.ImageSource1;
+                if (imageID.Equals(CurrentCard.CorrectImage))
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("yay.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image1 = "question_mark.png";
+                }
+                else
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("no.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image1 = "question_mark.png";
+                }
+            }
+            else if (imageID.Equals("2"))
+            {
+                Image2 = CurrentCard.ImageSource2;
+                if (imageID.Equals(CurrentCard.CorrectImage))
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("yay.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image2 = "question_mark.png";
+                }
+                else
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("no.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image2 = "question_mark.png";
+                }
+            }
+            else if (imageID.Equals("3"))
+            {
+                Image3 = CurrentCard.ImageSource3;
+                if (imageID.Equals(CurrentCard.CorrectImage))
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("yay.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image3 = "question_mark.png";
+                }
+                else
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("no.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image3 = "question_mark.png";
+                }
+            }
+            else if (imageID.Equals("4"))
+            {
+                Image4 = CurrentCard.ImageSource4;
+                if (imageID.Equals(CurrentCard.CorrectImage))
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("yay.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image4 = "question_mark.png";
+                }
+                else
+                {
+                    var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+                    player.Load("no.mp3");
+                    player.Play();
+                    await Task.Delay(3000);
+                    Image4 = "question_mark.png";
+                }
+            }
         }
-        public void OnImage3Command()
-        {
 
-        }
-        public void OnImage4Command()
-        {
-
-        }
 
         public void OnVoiceCommandTapped(MemoryCardModel currentCard)
         {
@@ -159,7 +229,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            IsUnvealCardsBtnEnabled = true;
+            IsUnvealCardsBtnVisible = true;
             CurrentCard = MemoryCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currentCards.ID).FirstOrDefault();
         }
 
@@ -170,7 +240,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            IsUnvealCardsBtnEnabled = true;
+            IsUnvealCardsBtnVisible = true;
             CurrentCard = MemoryCardsCollection.Where(c => c.ID > currentCards.ID).FirstOrDefault();
         }
 

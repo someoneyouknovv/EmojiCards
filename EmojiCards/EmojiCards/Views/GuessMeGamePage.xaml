@@ -10,23 +10,34 @@
         <StackLayout
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand">
-            <StackLayout
-                Orientation="Horizontal">
-                <ImageButton
-                    xct:TouchEffect.NativeAnimation="True"
-                    WidthRequest="170"
-                    BackgroundColor="Transparent"
-                    Aspect="AspectFit"
-                    Source="{Binding CurrentCard.CorrectEmoji}"
-                    Command="{Binding CorrectEmojiCommand}"/>
+            
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ImageButton
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        Source="{Binding CurrentCard.CorrectEmoji}"
+                        Command="{Binding CorrectEmojiCommand}"/>
 
-                <ImageButton
-                    xct:TouchEffect.NativeAnimation="True"
-                    WidthRequest="170"
-                    BackgroundColor="Transparent"
-                    Aspect="AspectFit"
-                    Source="{Binding CurrentCard.WrongEmoji}"
-                    Command="{Binding WrongEmojiCommand}"/>
+                    <ImageButton
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        xct:TouchEffect.NativeAnimation="True"
+                        BackgroundColor="Transparent"
+                        Aspect="AspectFit"
+                        Source="{Binding CurrentCard.WrongEmoji}"
+                        Command="{Binding WrongEmojiCommand}"/>
+                </Grid>
             </StackLayout>
 
             <StackLayout

@@ -194,28 +194,7 @@
     <BundleResource Include="Resources\emoji_cards_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\mk-confused.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mk-cry.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mk-happy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\mk-hungry.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mk-sad.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mk-shy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mk-smiling.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\mk-surprised.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\mk-thirsty.mp3" />
@@ -251,6 +230,33 @@
     <BundleResource Include="Resources\en-thirsty.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\mk-shy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-smiling.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-surprised.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\no.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yay.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\mk-angry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-confused.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-cry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-happy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mk-sad.mp3" />
   </ItemGroup>
 </Project>

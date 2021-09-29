@@ -39,7 +39,7 @@
 
                 <Button
                     BackgroundColor="{StaticResource EmojiCardsGreen}"
-                    Text="Memory game"
+                    Text="{xct:Translate GamesMenuButtonMemoryGame}"
                     Command="{Binding MemoryGameBtnCommand}"/>
             </StackLayout>
 

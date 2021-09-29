@@ -147,28 +147,7 @@
     <AndroidResource Include="Resources\drawable\background_firebaseauth.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\mk-confused.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\mk-cry.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\mk-happy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\mk-hungry.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\mk-sad.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\mk-shy.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\mk-smiling.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\mk-surprised.mp3" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\mk-thirsty.mp3" />
@@ -204,7 +183,34 @@
     <AndroidAsset Include="Assets\en-thirsty.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\mk-shy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\mk-smiling.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\mk-surprised.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\no.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\yay.mp3" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidAsset Include="Assets\mk-angry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\mk-confused.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\mk-cry.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\mk-happy.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\mk-sad.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -14,7 +14,7 @@
                 FontSize="Large"/>
 
             <ListView
-                ItemsSource="{Binding NotesCollection}">
+                ItemsSource="{Binding NotesCollection}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell 

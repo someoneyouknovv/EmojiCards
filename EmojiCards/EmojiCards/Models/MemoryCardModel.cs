@@ -54,5 +54,12 @@ namespace EmojiCards.Models
             get => _imageSource4;
             set => SetProperty(ref _imageSource4, value);
         }
+
+        private string _correctImage;
+        public string CorrectImage
+        {
+            get => _correctImage;
+            set => SetProperty(ref _correctImage, value);
+        }
     }
 }

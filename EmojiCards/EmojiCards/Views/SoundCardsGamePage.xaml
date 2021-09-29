@@ -13,8 +13,7 @@
             HorizontalOptions="CenterAndExpand" 
             VerticalOptions="CenterAndExpand">
             <StackLayout 
-                Orientation="Vertical"
-                Padding="50,0,50,0">
+                Orientation="Vertical">
                 <Image
                     Aspect="AspectFit"
                     Source="{Binding CurrentCard.ImageSource}"/>

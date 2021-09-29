@@ -115,6 +115,15 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Memory game.
+        /// </summary>
+        internal static string GamesMenuButtonMemoryGame {
+            get {
+                return ResourceManager.GetString("GamesMenuButtonMemoryGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flash cards.
         /// </summary>
         internal static string GamesMenuPageButtonFlashCards {
@@ -255,6 +264,24 @@ namespace EmojiCards.Resources {
         internal static string LogInPageTitle {
             get {
                 return ResourceManager.GetString("LogInPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flip the cards.
+        /// </summary>
+        internal static string MemoryGamePageButtonUnvealEmojis {
+            get {
+                return ResourceManager.GetString("MemoryGamePageButtonUnvealEmojis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Memory game.
+        /// </summary>
+        internal static string MemoryGamePageTitle {
+            get {
+                return ResourceManager.GetString("MemoryGamePageTitle", resourceCulture);
             }
         }
         

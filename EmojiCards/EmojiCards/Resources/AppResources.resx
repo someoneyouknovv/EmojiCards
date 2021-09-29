@@ -135,6 +135,9 @@
   <data name="FlashCardsGamePageTitle" xml:space="preserve">
     <value>Flash cards</value>
   </data>
+  <data name="GamesMenuButtonMemoryGame" xml:space="preserve">
+    <value>Memory game</value>
+  </data>
   <data name="GamesMenuPageButtonFlashCards" xml:space="preserve">
     <value>Flash cards</value>
   </data>
@@ -182,6 +185,12 @@
   </data>
   <data name="LogInPageTitle" xml:space="preserve">
     <value>Log in</value>
+  </data>
+  <data name="MemoryGamePageButtonUnvealEmojis" xml:space="preserve">
+    <value>Flip the cards</value>
+  </data>
+  <data name="MemoryGamePageTitle" xml:space="preserve">
+    <value>Memory game</value>
   </data>
   <data name="MenuPageBtnGames" xml:space="preserve">
     <value>Games</value>

@@ -135,6 +135,9 @@
   <data name="FlashCardsGamePageTitle" xml:space="preserve">
     <value>Брзи картички</value>
   </data>
+  <data name="GamesMenuButtonMemoryGame" xml:space="preserve">
+    <value>Игра со меморија</value>
+  </data>
   <data name="GamesMenuPageButtonFlashCards" xml:space="preserve">
     <value>Брзи картички</value>
   </data>
@@ -182,6 +185,12 @@
   </data>
   <data name="LogInPageTitle" xml:space="preserve">
     <value>Најава</value>
+  </data>
+  <data name="MemoryGamePageButtonUnvealEmojis" xml:space="preserve">
+    <value>Сврти ги картичките</value>
+  </data>
+  <data name="MemoryGamePageTitle" xml:space="preserve">
+    <value>Игра со меморија</value>
   </data>
   <data name="MenuPageBtnGames" xml:space="preserve">
     <value>Игри</value>
