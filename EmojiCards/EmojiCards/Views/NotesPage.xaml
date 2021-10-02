@@ -10,7 +10,12 @@
     <ContentPage.Content>
         <StackLayout>
             <Label 
+                BackgroundColor="AliceBlue"
+                Opacity="0.5"
+                TextColor="Black"
+                HorizontalTextAlignment="Center"
                 Text="{xct:Translate NotesPageLabelListOfNotes}" 
+                Padding="9"
                 FontSize="Large"/>
 
             <ListView
@@ -28,6 +33,29 @@
                                           EventArgsParameterPath="Item"  />
                 </ListView.Behaviors>
             </ListView>
+
+            <!--<StackLayout
+                x:Name="Collection"
+                BindableLayout.ItemsSource="{Binding NotesCollection}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding Title}"/>
+                            <Label
+                                Text="{Binding Description}"/>
+
+                            <BoxView BackgroundColor="Black" HeightRequest="1"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding BindingContext.SingleNoteTappedCommand,Source={x:Reference Collection}}"
+                                    CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>-->
             
             <StackLayout
                 VerticalOptions="EndAndExpand"

@@ -1,6 +1,5 @@
 ﻿using Prism.Mvvm;
 
-
 namespace EmojiCards.Models
 {
     public class CardGameModel : BindableBase

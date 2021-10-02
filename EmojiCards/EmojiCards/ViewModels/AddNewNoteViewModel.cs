@@ -73,7 +73,6 @@ namespace EmojiCards.ViewModels
                     (Preferences.Get("MyFirebaseRefreshToken", ""));
                 var refreshedContent = await authProvider.RefreshAuthAsync(savedFirebaseAuth);
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));
-                // emailot ke go zemish kaa savedFirebaseAuth.User.Email
             }
             catch (Exception e)
             {

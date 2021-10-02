@@ -16,7 +16,6 @@ namespace EmojiCards.ViewModels
     public class BaseViewModel : BindableBase, INavigatedAware
     {
         protected INavigation PageNavigation { get; }
-
         internal Page page;
 
         public BaseViewModel(Page page)

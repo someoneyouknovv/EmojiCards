@@ -250,9 +250,9 @@ namespace EmojiCards.Repository
                 {
                     ID = 2,
                     EmojiName = AppResources.SharedModelAngry,
-                    ImageSource1="hungry.png",
-                    ImageSource2 ="thirsty.png",
-                    ImageSource3 = "happy.png",
+                    ImageSource1="thirsty.png",
+                    ImageSource2 ="hungry.png",
+                    ImageSource3 = "shy.png",
                     ImageSource4 = "angry.png",
                     CorrectImage="4",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
@@ -265,7 +265,7 @@ namespace EmojiCards.Repository
                     EmojiName = AppResources.SharedModelConfused,
                     ImageSource1="hungry.png",
                     ImageSource2 ="confused.png",
-                    ImageSource3 = "happy.png",
+                    ImageSource3 = "shy.png",
                     ImageSource4 = "sad.png",
                     CorrectImage="2",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
@@ -292,7 +292,7 @@ namespace EmojiCards.Repository
                     ImageSource1="hungry.png",
                     ImageSource2 ="cry.png",
                     ImageSource3 = "shy.png",
-                    ImageSource4 = "sad.png",
+                    ImageSource4 = "thirsty.png",
                     CorrectImage="1",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-hungry.mp3"
@@ -304,7 +304,7 @@ namespace EmojiCards.Repository
                     EmojiName = AppResources.SharedModelSurprised,
                     ImageSource1="shy.png",
                     ImageSource2 ="cry.png",
-                    ImageSource3 = "happy.png",
+                    ImageSource3 = "thirsty.png",
                     ImageSource4 = "surprised.png",
                     CorrectImage="4",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
@@ -318,7 +318,7 @@ namespace EmojiCards.Repository
                     ImageSource1="hungry.png",
                     ImageSource2 ="cry.png",
                     ImageSource3 = "thirsty.png",
-                    ImageSource4 = "surprised.png",
+                    ImageSource4 = "happy.png",
                     CorrectImage="3",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-thirsty.mp3"
@@ -328,7 +328,7 @@ namespace EmojiCards.Repository
                 {
                     ID = 8,
                     EmojiName = AppResources.SharedModelSmiling,
-                    ImageSource1="hungry.png",
+                    ImageSource1="shy.png",
                     ImageSource2 ="thirsty.png",
                     ImageSource3 = "smiling.png",
                     ImageSource4 = "sad.png",
@@ -356,8 +356,8 @@ namespace EmojiCards.Repository
                     EmojiName = AppResources.SharedModelShy,
                     ImageSource1="surprised.png",
                     ImageSource2 ="shy.png",
-                    ImageSource3 = "happy.png",
-                    ImageSource4 = "sad.png",
+                    ImageSource3 = "sad.png",
+                    ImageSource4 = "smiling.png",
                     CorrectImage="2",
                     SoundSource = LocalizationResourceManager.Current.CurrentCulture.Name.Equals("mk")
                     ? "mk-shy.mp3"
@@ -365,7 +365,6 @@ namespace EmojiCards.Repository
                 }
             };
             return MemoryCardsCollection;
-
         }
     }         
 }

@@ -146,43 +146,13 @@
     <BundleResource Include="Resources\srekjen.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\hungry.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\confused.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\cry.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\happy.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\leftbutton.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\rightbutton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\sad.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\shy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\smiling.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\surprised.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\thirsty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\angry.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\question_mark.jpg" />
@@ -258,5 +228,35 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\mk-sad.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thirsty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\angry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\confused.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\happy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hungry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\smiling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\surprised.png" />
   </ItemGroup>
 </Project>

@@ -14,8 +14,11 @@
                     <Label 
                         Text="{xct:Translate SharedPlaceholderTitle}"
                         TextColor="Black"
-                        FontSize="Medium"
-                        BackgroundColor="LightGray"/>
+                        FontSize="20"
+                        Padding="5"
+                        FontAttributes="Bold"
+                        CharacterSpacing="2"
+                        BackgroundColor="{StaticResource EmojiCardsBlue}"/>
                     <Editor
                         AutoSize="TextChanges"
                         Placeholder="{xct:Translate SharedPlaceholderTitle}"
@@ -24,8 +27,11 @@
                     <Label 
                         Text="{xct:Translate SharedPlaceholderDescription}"
                         TextColor="Black"
-                        FontSize="Medium"
-                        BackgroundColor="LightGray"/>
+                        FontSize="20"
+                        Padding="5"
+                        FontAttributes="Bold"
+                        CharacterSpacing="2"
+                        BackgroundColor="{StaticResource EmojiCardsGreen}"/>
                     <Editor
                         AutoSize="TextChanges"
                         Placeholder="{xct:Translate SharedPlaceholderDescription}"  

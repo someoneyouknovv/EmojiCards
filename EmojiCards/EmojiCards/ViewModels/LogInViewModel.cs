@@ -2,13 +2,10 @@
 using EmojiCards.Resources;
 using EmojiCards.Views;
 using Firebase.Auth;
-using Firebase.Database;
 using Mobile.Portable;
-using MvvmHelpers;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
-using System;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -48,7 +45,6 @@ namespace EmojiCards.ViewModels
                     AppResources.SharedAlertOk);
                 return;
             }
-
 
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
             try
@@ -114,6 +110,5 @@ namespace EmojiCards.ViewModels
             FirebaseUser.Password = "";
             base.OnNavigatedTo(parameters);
         }
-
     }
 }
