@@ -129,9 +129,6 @@
   <data name="FlashCardsGameButtonHelp" xml:space="preserve">
     <value>Click for help</value>
   </data>
-  <data name="FlashCardsGamePageLabelHelper" xml:space="preserve">
-    <value>Click on the question mark :)</value>
-  </data>
   <data name="FlashCardsGamePageTitle" xml:space="preserve">
     <value>Flash cards</value>
   </data>

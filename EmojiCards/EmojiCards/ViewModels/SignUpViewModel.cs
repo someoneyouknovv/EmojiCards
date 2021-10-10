@@ -26,8 +26,6 @@ namespace EmojiCards.ViewModels
         {
         }
 
-        //public LocalizedString LocalizedAlert { get; } = new(()=> string.Format(AppResources.SharedAlertAlert));
-
         public async void OnSignUpBtnClicked()
         {
             if(string.IsNullOrWhiteSpace(FirebaseUser.Username) || string.IsNullOrWhiteSpace(FirebaseUser.Password))

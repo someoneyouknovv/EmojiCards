@@ -17,8 +17,8 @@ namespace EmojiCards.ViewModels
 {
     public class AddNewNoteViewModel : BaseViewModel
     {
-        public string WebApiKey = "AIzaSyA5ssBLbQEyIo9pDUBomOweQYAD9hyoL94";
         private DBFirebase _services;
+        public string WebApiKey = "AIzaSyA5ssBLbQEyIo9pDUBomOweQYAD9hyoL94";
 
         private Note _currentNote = new Note();
         public Note CurrentNote
@@ -35,16 +35,22 @@ namespace EmojiCards.ViewModels
         }
 
         private ICommand _addNoteBtnTappedCommand;
-        public ICommand AddNoteBtnTappedCommand => _addNoteBtnTappedCommand ??= new DelegateCommand<object>(OnAddNoteBtnTappedCommand);
+        public ICommand AddNoteBtnTappedCommand => _addNoteBtnTappedCommand ??= new DelegateCommand<Note>(OnAddNoteBtnTappedCommand);
 
         public AddNewNoteViewModel(Page page) : base(page)
         {
             _services = new DBFirebase();
         }
-
-        public async void OnAddNoteBtnTappedCommand(object obj)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            CurrentNote = obj as Note;
+            base.OnNavigatedTo(parameters);
+            CurrentFirebaseUser = Singleton.Instance.CurrentFirebaseUser;
+            RefreshToken();
+        }
+
+        public async void OnAddNoteBtnTappedCommand(Note newNote)
+        {
+            CurrentNote = newNote;
             if (string.IsNullOrWhiteSpace(CurrentNote.Title) || string.IsNullOrWhiteSpace(CurrentNote.Title))
             {
                 await page.DisplayAlert(AppResources.SharedAlertAlert,
@@ -54,14 +60,6 @@ namespace EmojiCards.ViewModels
             }
             await _services.AddNote(CurrentFirebaseUser.Username, CurrentNote.Title, CurrentNote.Description);
             await page.Navigation.PopAsync();
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-            CurrentFirebaseUser = Singleton.Instance.CurrentFirebaseUser;
-            RefreshToken();
-  
         }
 
         public async void RefreshToken()
@@ -74,9 +72,11 @@ namespace EmojiCards.ViewModels
                 var refreshedContent = await authProvider.RefreshAuthAsync(savedFirebaseAuth);
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                await page.DisplayAlert("Alert", "Token expired", "Ok");
+                await page.DisplayAlert(AppResources.SharedAlertAlert, 
+                    AppResources.SharedAlertSomethingWentWrong,
+                    AppResources.SharedAlertOk);
             }
         }
     }

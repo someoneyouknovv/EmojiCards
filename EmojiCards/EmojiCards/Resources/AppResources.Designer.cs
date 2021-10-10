@@ -97,15 +97,6 @@ namespace EmojiCards.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click on the question mark :).
-        /// </summary>
-        internal static string FlashCardsGamePageLabelHelper {
-            get {
-                return ResourceManager.GetString("FlashCardsGamePageLabelHelper", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Flash cards.
         /// </summary>
         internal static string FlashCardsGamePageTitle {

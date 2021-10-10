@@ -18,6 +18,8 @@
                     Aspect="AspectFit"
                     Source="{Binding CurrentCard.ImageSource}"/>
 
+                <BoxView HeightRequest="10" BackgroundColor="Transparent"/>
+
                 <StackLayout
                     x:Name="VoiceButton"
                     Spacing="0"                               

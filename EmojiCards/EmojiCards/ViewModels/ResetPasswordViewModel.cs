@@ -16,8 +16,10 @@ namespace EmojiCards.ViewModels
             get => _email;
             set => SetProperty(ref _email, value);
         }
+
         private ICommand _resetPasswordCommand;
         public ICommand ResetPasswordBtnCommand => _resetPasswordCommand ??= new DelegateCommand(OnResetPasswordBtnCommand);
+
         public ResetPasswordViewModel(Page page) : base(page)
         {
         }
@@ -55,8 +57,7 @@ namespace EmojiCards.ViewModels
                     await page.DisplayAlert(AppResources.SharedAlertAlert,
                         AppResources.SharedAlertSomethingWentWrong,
                         AppResources.SharedAlertOk);
-                }
-                
+                }  
             }
         }
     }

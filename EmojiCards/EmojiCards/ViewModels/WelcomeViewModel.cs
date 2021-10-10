@@ -1,9 +1,6 @@
-﻿using EmojiCards.Resources;
-using EmojiCards.Views;
+﻿using EmojiCards.Views;
 using Prism.Commands;
-using Prism.Navigation;
 using System.Windows.Input;
-using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Forms;
 
 namespace EmojiCards.ViewModels
@@ -19,6 +16,7 @@ namespace EmojiCards.ViewModels
         public WelcomeViewModel(Page page) : base(page)
         {
         }
+
         public async void OnContinueBtnTappedCommand()
         {
             await page.Navigation.PushAsync(new MenuPage());
@@ -28,6 +26,5 @@ namespace EmojiCards.ViewModels
         {
             await page.Navigation.PushAsync(new ChangeLanguagePage());
         }
-
     }
 }

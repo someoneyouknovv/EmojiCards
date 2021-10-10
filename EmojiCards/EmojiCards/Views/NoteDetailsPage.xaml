@@ -15,8 +15,8 @@
                         Text="{xct:Translate SharedPlaceholderTitle}"
                         TextColor="Black"
                         FontSize="20"
+                        FontAttributes="Italic"
                         Padding="5"
-                        FontAttributes="Bold"
                         CharacterSpacing="2"
                         BackgroundColor="{StaticResource EmojiCardsBlue}"/>
                     <Editor
@@ -28,8 +28,8 @@
                         Text="{xct:Translate SharedPlaceholderDescription}"
                         TextColor="Black"
                         FontSize="20"
+                        FontAttributes="Italic"
                         Padding="5"
-                        FontAttributes="Bold"
                         CharacterSpacing="2"
                         BackgroundColor="{StaticResource EmojiCardsGreen}"/>
                     <Editor
@@ -61,7 +61,6 @@
                     HorizontalOptions="Center"
                     IsVisible="{Binding IsDeleteBtnVisible}"
                     Command="{Binding DeleteNoteBtnTappedCommand}"/>
-
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

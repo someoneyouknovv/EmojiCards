@@ -14,19 +14,13 @@ namespace EmojiCards.ViewModels
     public class SoundCardsGameViewModel : BaseViewModel
     {
         private readonly IGamesRepository _gamesRepository;
+        private ObservableCollection<CardGameModel> _cardsCollection = new ObservableCollection<CardGameModel>();
 
         private CardGameModel _currentCard = new CardGameModel();
         public CardGameModel CurrentCard
         {
             get => _currentCard;
             set => SetProperty(ref _currentCard, value);
-        }
-
-        private ObservableCollection<CardGameModel> _cardsCollection = new ObservableCollection<CardGameModel>();
-        public ObservableCollection<CardGameModel> CardsCollection
-        {
-            get => _cardsCollection;
-            set => SetProperty(ref _cardsCollection, value);
         }
 
         private ICommand _voiceCommand;
@@ -40,9 +34,14 @@ namespace EmojiCards.ViewModels
 
         public SoundCardsGameViewModel(Page page) : base(page)
         {
-
             _gamesRepository = new GamesRepository();
-            CardsCollection = _gamesRepository.GetAllCards();
+            _cardsCollection = _gamesRepository.GetAllCards();
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            CurrentCard = _cardsCollection.FirstOrDefault();
         }
 
         public void OnVoiceCommandTapped(CardGameModel currentCard)
@@ -60,7 +59,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();
+            CurrentCard = _cardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
@@ -71,13 +70,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = CardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-            CurrentCard = CardsCollection.FirstOrDefault();
+            CurrentCard = _cardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
         }
 
         public async void DisplayPopUps()
@@ -98,7 +91,7 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
-                CurrentCard = CardsCollection.FirstOrDefault();
+                CurrentCard = _cardsCollection.FirstOrDefault();
             }
         }
     }

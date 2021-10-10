@@ -14,13 +14,7 @@ namespace EmojiCards.ViewModels
     public class GuessMeGameViewModel : BaseViewModel
     {
         private readonly IGamesRepository _gamesRepository;
-
         private ObservableCollection<GuessMeCardModel> _guessMeCardsCollection;
-        public ObservableCollection<GuessMeCardModel> GuessMeCardsCollection
-        {
-            get => _guessMeCardsCollection;
-            set => SetProperty(ref _guessMeCardsCollection, value);
-        }
 
         private GuessMeCardModel _currentCard = new GuessMeCardModel();
         public GuessMeCardModel CurrentCard
@@ -47,12 +41,13 @@ namespace EmojiCards.ViewModels
         public GuessMeGameViewModel(Page page) : base(page)
         {
             _gamesRepository = new GamesRepository();
-            GuessMeCardsCollection = _gamesRepository.GetAllGuessMeCards();
+            _guessMeCardsCollection = _gamesRepository.GetAllGuessMeCards();
         }
+
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            CurrentCard = GuessMeCardsCollection.FirstOrDefault();
+            CurrentCard = _guessMeCardsCollection.FirstOrDefault();
         }
 
         public void OnVoiceCommandTapped(GuessMeCardModel currentCard)
@@ -70,7 +65,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = GuessMeCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();   
+            CurrentCard = _guessMeCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();   
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
@@ -81,7 +76,7 @@ namespace EmojiCards.ViewModels
                 DisplayPopUps();
                 return;
             }
-            CurrentCard = GuessMeCardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
+            CurrentCard = _guessMeCardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
         }
 
         public async void DisplayPopUps()
@@ -102,18 +97,18 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
-                CurrentCard = GuessMeCardsCollection.FirstOrDefault();
+                CurrentCard = _guessMeCardsCollection.FirstOrDefault();
             }
         }
 
-        public async void OnCorrectEmojiCommand()
+        public void OnCorrectEmojiCommand()
         {
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("yay.mp3");
             player.Play();
         }
 
-        public async void OnWrongEmojiCommand()
+        public void OnWrongEmojiCommand()
         {
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("no.mp3");

@@ -129,9 +129,6 @@
   <data name="FlashCardsGameButtonHelp" xml:space="preserve">
     <value>Кликни за помош</value>
   </data>
-  <data name="FlashCardsGamePageLabelHelper" xml:space="preserve">
-    <value>Кликни на прашалникот :)</value>
-  </data>
   <data name="FlashCardsGamePageTitle" xml:space="preserve">
     <value>Брзи картички</value>
   </data>

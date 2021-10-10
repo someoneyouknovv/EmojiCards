@@ -45,10 +45,18 @@ namespace EmojiCards.ViewModels
         private ICommand _deleteNoteBtnTappedCommand;
         public ICommand DeleteNoteBtnTappedCommand => _deleteNoteBtnTappedCommand ??= new DelegateCommand(OnDeleteNoteBtnTappedCommand);
 
-
         public NoteDetailsViewModel(Page page) : base(page)
         {
             _services = new DBFirebase();
+        }
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            CurrentFirebaseUser = Singleton.Instance.CurrentFirebaseUser;
+            CurrentNote = Singleton.Instance.CurrentNote;
+            IsDeleteBtnVisible = CurrentNote != null;
+ 
+            RefreshToken();
         }
 
         public async void OnUpdateNoteBtnTappedCommand()
@@ -79,27 +87,12 @@ namespace EmojiCards.ViewModels
             await page.Navigation.PopAsync();
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-
-            CurrentNote = Singleton.Instance.CurrentNote;
-
-            if(Singleton.Instance.CurrentNote != null)
-            {
-                IsDeleteBtnVisible = true;
-            }
-
-            CurrentFirebaseUser = Singleton.Instance.CurrentFirebaseUser;
-
-            RefreshToken();
-        }
         public async void RefreshToken()
         {
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebApiKey));
             try
             {
-                var savedFirebaseAuth = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>
+                var savedFirebaseAuth = JsonConvert.DeserializeObject<FirebaseAuth>
                     (Preferences.Get("MyFirebaseRefreshToken", ""));
                 var refreshedContent = await authProvider.RefreshAuthAsync(savedFirebaseAuth);
                 Preferences.Set("MyFirebaseRefreshToken", JsonConvert.SerializeObject(refreshedContent));

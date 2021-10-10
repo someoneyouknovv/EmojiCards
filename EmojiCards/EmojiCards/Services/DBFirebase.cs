@@ -60,7 +60,6 @@ namespace EmojiCards.Services
                 .Child(user)
                 .Child(updateNote.Key)
                 .PutAsync(newNote);
-
         }
 
         public async Task DeleteNote(string username, string id)

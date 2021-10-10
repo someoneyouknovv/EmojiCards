@@ -36,6 +36,13 @@ namespace EmojiCards.ViewModels
         {
         }
 
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            FirebaseUser.Username = "";
+            FirebaseUser.Password = "";
+            base.OnNavigatedTo(parameters);
+        }
+
         public async void OnLogInBtnClicked()
         {
             if (string.IsNullOrWhiteSpace(FirebaseUser.Username) || string.IsNullOrWhiteSpace(FirebaseUser.Password))
@@ -102,13 +109,6 @@ namespace EmojiCards.ViewModels
         public async void OnResetPasswordCommand()
         {
             await page.Navigation.PushAsync(new ResetPasswordPage());
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            FirebaseUser.Username = "";
-            FirebaseUser.Password = "";
-            base.OnNavigatedTo(parameters);
         }
     }
 }

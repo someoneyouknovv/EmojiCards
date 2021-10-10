@@ -38,7 +38,7 @@ namespace EmojiCards.ViewModels
         public ICommand LogOutBtnClicked => _logOutBtnClicked ??= new DelegateCommand(OnLogOutBtnClicked);
 
         private ICommand _singleNoteTappedCommand;
-        public ICommand SingleNoteTappedCommand => _singleNoteTappedCommand ??= new DelegateCommand<object>(OnSingleNoteTappedCommand);
+        public ICommand SingleNoteTappedCommand => _singleNoteTappedCommand ??= new DelegateCommand<Note>(OnSingleNoteTappedCommand);
 
         private ICommand _addNoteBtnTappedCommand;
         public ICommand AddNoteBtnTappedCommand => _addNoteBtnTappedCommand ??= new DelegateCommand(OnAddNoteBtnTappedCommand);
@@ -58,24 +58,9 @@ namespace EmojiCards.ViewModels
             NotesCollection = _services.GetNotesCollection(CurrentFirebaseUser.Username);
         }
 
-        public async void OnLogOutBtnClicked()
+        public async void OnSingleNoteTappedCommand(Note noteSelected)
         {
-            var answer = await page.DisplayAlert
-                (AppResources.SharedAlertAlert,
-                AppResources.NotesPageAlertSureToLogOut,
-                AppResources.SharedAlertYes,
-                AppResources.SharedAlertNo);
-
-            if (!answer)
-                return;
-            Preferences.Remove("MyFirebaseRefreshToken");
-            await page.Navigation.PopAsync();
-        }
-
-        public async void OnSingleNoteTappedCommand(object itemTapped)
-        {
-            var currNote = itemTapped as Note;
-            Singleton.Instance.CurrentNote = currNote;
+            Singleton.Instance.CurrentNote = noteSelected;
             Singleton.Instance.CurrentFirebaseUser = CurrentFirebaseUser;
             await page.Navigation.PushAsync(new NoteDetailsPage());
         }
@@ -103,6 +88,19 @@ namespace EmojiCards.ViewModels
                     AppResources.NotesPageAlertTokenExpired,
                     AppResources.SharedAlertOk);
             }
+        }
+        public async void OnLogOutBtnClicked()
+        {
+            var answer = await page.DisplayAlert
+                (AppResources.SharedAlertAlert,
+                AppResources.NotesPageAlertSureToLogOut,
+                AppResources.SharedAlertYes,
+                AppResources.SharedAlertNo);
+
+            if (!answer)
+                return;
+            Preferences.Remove("MyFirebaseRefreshToken");
+            await page.Navigation.PopAsync();
         }
     }
 }

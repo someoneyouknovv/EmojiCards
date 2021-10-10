@@ -1,10 +1,7 @@
 ﻿using EmojiCards.Models;
-using EmojiCards.Resources;
-using EmojiCards.Views;
 using Prism.Commands;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Input;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Forms;
@@ -39,7 +36,6 @@ namespace EmojiCards.ViewModels
             LangNames.Add(en);
             MyLanguage mkd = new MyLanguage("Macedonian", "mk");
             LangNames.Add(mkd);
-
             //SelectedLanguage = LangNames.FirstOrDefault(pro => pro.CI == LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
         }
 
