@@ -15,6 +15,7 @@ namespace EmojiCards.ViewModels
     public class MemoryGameViewModel : BaseViewModel
     {
         private readonly IGamesRepository _gamesRepository;
+        private ObservableCollection<MemoryCardModel> _memoryCardsCollection = new ObservableCollection<MemoryCardModel>();
 
         private MemoryCardModel _currentCard;
         public MemoryCardModel CurrentCard
@@ -65,25 +66,11 @@ namespace EmojiCards.ViewModels
             set => SetProperty(ref _isUnvealCardsBtnVisible, value);
         }
 
-        private ObservableCollection<MemoryCardModel> _memoryCardsCollection = new ObservableCollection<MemoryCardModel>();
-        public ObservableCollection<MemoryCardModel> MemoryCardsCollection
+        private bool _areNavigationButtonsEnabled = true;
+        public bool AreNavigationButtonsEnabled
         {
-            get => _memoryCardsCollection;
-            set => SetProperty(ref _memoryCardsCollection, value);
-        }
-
-        private bool _isVisibleImage1 = true;
-        public bool IsVisibleImage1
-        {
-            get => _isVisibleImage1;
-            set => SetProperty(ref _isVisibleImage1, value);
-        }
-
-        private bool _isVisibleImage2 = true;
-        public bool IsVisibleImage2
-        {
-            get => _isVisibleImage2;
-            set => SetProperty(ref _isVisibleImage2, value);
+            get => _areNavigationButtonsEnabled;
+            set => SetProperty(ref _areNavigationButtonsEnabled, value);
         }
 
         private ICommand _unvealCardsCommand;
@@ -101,21 +88,22 @@ namespace EmojiCards.ViewModels
         private ICommand _nextVoiceCardBtn;
         public ICommand NextVoiceCardBtn => _nextVoiceCardBtn ??= new DelegateCommand<MemoryCardModel>(OnNextVoiceCardBtnTapped);
 
-
         public MemoryGameViewModel(Page page) : base(page)
         {
             _gamesRepository = new GamesRepository();
             _memoryCardsCollection = _gamesRepository.GetAllMemoryCards();
         }
+
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
             Image1 = Image2 = Image3 = Image4  = "question_mark.png";
-            CurrentCard = MemoryCardsCollection.First();
+            CurrentCard = _memoryCardsCollection.First();
         }
 
         public async void OnUnvealCardsCommandAsync()
         {
+            AreNavigationButtonsEnabled =  false;
             Image1 = CurrentCard.ImageSource1;
             Image2 = CurrentCard.ImageSource2;
             Image3 = CurrentCard.ImageSource3;
@@ -124,6 +112,7 @@ namespace EmojiCards.ViewModels
             await Task.Delay(3000);
 
             Image1 = Image2 = Image3 = Image4 = "question_mark.png";
+            AreNavigationButtonsEnabled =  true;
             IsUnvealCardsBtnVisible = false;
         }
 
@@ -132,6 +121,7 @@ namespace EmojiCards.ViewModels
             if (IsUnvealCardsBtnVisible)
                 return;
 
+            AreNavigationButtonsEnabled = false;
             if (imageID.Equals("1"))
             {
                 Image1 = CurrentCard.ImageSource1;
@@ -212,6 +202,7 @@ namespace EmojiCards.ViewModels
                     Image4 = "question_mark.png";
                 }
             }
+            AreNavigationButtonsEnabled = true;
         }
 
 
@@ -230,7 +221,7 @@ namespace EmojiCards.ViewModels
                 return;
             }
             IsUnvealCardsBtnVisible = true;
-            CurrentCard = MemoryCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currentCards.ID).FirstOrDefault();
+            CurrentCard = _memoryCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currentCards.ID).FirstOrDefault();
         }
 
         public void OnNextVoiceCardBtnTapped(MemoryCardModel currentCards)
@@ -241,7 +232,7 @@ namespace EmojiCards.ViewModels
                 return;
             }
             IsUnvealCardsBtnVisible = true;
-            CurrentCard = MemoryCardsCollection.Where(c => c.ID > currentCards.ID).FirstOrDefault();
+            CurrentCard = _memoryCardsCollection.Where(c => c.ID > currentCards.ID).FirstOrDefault();
         }
 
         public async void DisplayPopUps()
@@ -262,9 +253,8 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
-                CurrentCard = MemoryCardsCollection.FirstOrDefault();
+                CurrentCard = _memoryCardsCollection.FirstOrDefault();
             }
         }
-
     }
 }

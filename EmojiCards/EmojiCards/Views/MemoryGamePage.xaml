@@ -11,7 +11,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*" />
                     <RowDefinition Height="10*" />
-                    <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -59,6 +58,8 @@
                     CommandParameter="4"/>
             </Grid>
 
+            <BoxView Color="Transparent" HeightRequest="10"/>
+            
             <StackLayout
                 HorizontalOptions="CenterAndExpand">
                 <Button
@@ -112,6 +113,7 @@
                     WidthRequest="70"
                     Aspect="AspectFit"
                     Source="leftbutton.png"
+                    IsEnabled="{Binding AreNavigationButtonsEnabled}"
                     xct:TouchEffect.NativeAnimation="True" >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
@@ -125,6 +127,7 @@
                     WidthRequest="70"
                     Aspect="AspectFit"
                     Source="rightbutton.png"
+                    IsEnabled="{Binding AreNavigationButtonsEnabled}"
                     xct:TouchEffect.NativeAnimation="True">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
