@@ -146,19 +146,10 @@
     <BundleResource Include="Resources\srekjen.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\leftbutton.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\rightbutton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\question_mark.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\background_firebaseauth.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\emoji_cards_logo.png" />
@@ -258,5 +249,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\surprised.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\question_mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\background_firebaseauth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\background.png" />
   </ItemGroup>
 </Project>

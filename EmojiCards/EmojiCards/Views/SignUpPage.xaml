@@ -5,7 +5,7 @@
              x:Class="EmojiCards.Views.SignUpPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
-             BackgroundImageSource="background_firebaseauth.jpg"
+             BackgroundImageSource="background_firebaseauth.png"
              Title="{xct:Translate SignUpPageTitle}">
     <ContentPage.Content>
         <StackLayout

@@ -99,22 +99,13 @@
     <AndroidResource Include="Resources\drawable\welcome_page_kids.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\leftbutton.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rightbutton.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\question_mark.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\emoji_cards_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\background_firebaseauth.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\mk-hungry.mp3" />
@@ -211,6 +202,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\thirsty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\question_mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\background_firebaseauth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
