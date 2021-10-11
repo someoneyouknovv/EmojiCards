@@ -61,7 +61,7 @@
             <BoxView Color="Transparent" HeightRequest="10"/>
             
             <StackLayout
-                HorizontalOptions="CenterAndExpand">
+                HorizontalOptions="FillAndExpand">
                 <Button
                     Text="{xct:Translate MemoryGamePageButtonUnvealEmojis}"
                     BackgroundColor="{StaticResource EmojiCardsYellow}"
@@ -74,6 +74,7 @@
                     x:Name="VoiceButton"
                     Spacing="0"                               
                     Orientation="Horizontal"
+                    
                     BackgroundColor="{StaticResource EmojiCardsOrange}"
                     xct:TouchEffect.NativeAnimation="True">
                     <Image

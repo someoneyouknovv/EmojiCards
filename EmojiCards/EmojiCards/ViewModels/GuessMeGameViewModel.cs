@@ -42,6 +42,7 @@ namespace EmojiCards.ViewModels
         {
             _gamesRepository = new GamesRepository();
             _guessMeCardsCollection = _gamesRepository.GetAllGuessMeCards();
+            _guessMeCardsCollection.Shuffle();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -59,35 +60,39 @@ namespace EmojiCards.ViewModels
 
         public void OnPreviousVoiceCardBtnTapped(object obj)
         {
-            var currInt = (int)obj;
-            if (currInt == 1)
+            var currentId = (int)obj;
+            var currentIndex = GetCurrentIndex(currentId);
+            if (currentIndex == 0)
             {
-                DisplayPopUps();
+                DisplayPopUps(currentIndex);
                 return;
             }
-            CurrentCard = _guessMeCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();   
+            if (currentIndex > 0)
+                CurrentCard = _guessMeCardsCollection[currentIndex - 1];
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
         {
-            var currInt = (int)obj;
-            if (currInt== 10)
+            var currentId = (int)obj;
+            var currentIndex = GetCurrentIndex(currentId);
+            if (currentIndex == _guessMeCardsCollection.Count - 1)
             {
-                DisplayPopUps();
+                DisplayPopUps(currentIndex);
                 return;
             }
-            CurrentCard = _guessMeCardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
+            if (currentIndex < _guessMeCardsCollection.Count - 1)
+                CurrentCard = _guessMeCardsCollection[currentIndex + 1];
         }
 
-        public async void DisplayPopUps()
+        public async void DisplayPopUps(int index)
         {
-            if (CurrentCard.ID == 1)
+            if (index == 0)
             {
                 await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertCantGoBack,
                     AppResources.SharedAlertOk);
             }
-            else if (CurrentCard.ID == 10)
+            else if (index == _guessMeCardsCollection.Count - 1)
             {
                 var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertPlayAgain,
@@ -97,6 +102,7 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
+                _guessMeCardsCollection.Shuffle();
                 CurrentCard = _guessMeCardsCollection.FirstOrDefault();
             }
         }
@@ -113,6 +119,19 @@ namespace EmojiCards.ViewModels
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("no.mp3");
             player.Play();
+        }
+        public int GetCurrentIndex(int currentCardID)
+        {
+            var currentIndex = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                if (currentCardID == _guessMeCardsCollection[i].ID)
+                {
+                    currentIndex = i;
+                    break;
+                }
+            }
+            return currentIndex;
         }
     }
 }

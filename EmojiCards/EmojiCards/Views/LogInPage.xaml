@@ -28,7 +28,7 @@
                 Orientation="Horizontal">
                 <Label 
                     Text="{xct:Translate LogInPageLabelPleaseRegister}"
-                    HorizontalTextAlignment="End"
+                    HorizontalTextAlignment="Start"
                     TextDecorations="Underline"
                     HorizontalOptions="StartAndExpand">
                     <Label.GestureRecognizers>

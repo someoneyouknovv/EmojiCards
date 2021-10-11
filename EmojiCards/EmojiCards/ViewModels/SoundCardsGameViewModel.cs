@@ -36,6 +36,7 @@ namespace EmojiCards.ViewModels
         {
             _gamesRepository = new GamesRepository();
             _cardsCollection = _gamesRepository.GetAllCards();
+            _cardsCollection.Shuffle();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -53,35 +54,39 @@ namespace EmojiCards.ViewModels
 
         public void OnPreviousVoiceCardBtnTapped(object obj)
         {
-            var currInt = (int)obj;
-            if (currInt == 1)
+            var currentId = (int)obj;
+            var currentIndex = GetCurrentIndex(currentId);
+            if (currentIndex == 0)
             {
-                DisplayPopUps();
+                DisplayPopUps(currentIndex);
                 return;
             }
-            CurrentCard = _cardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currInt).FirstOrDefault();
+            if (currentIndex > 0)
+                CurrentCard = _cardsCollection[currentIndex - 1];
         }
 
         public void OnNextVoiceCardBtnTapped(object obj)
         {
-            var currInt = (int)obj;
-            if (currInt == 10)
+            var currentId = (int)obj;
+            var currentIndex = GetCurrentIndex(currentId);
+            if (currentIndex == _cardsCollection.Count - 1)
             {
-                DisplayPopUps();
+                DisplayPopUps(currentIndex);
                 return;
             }
-            CurrentCard = _cardsCollection.Where(c => c.ID > currInt).FirstOrDefault();
+            if (currentIndex < _cardsCollection.Count - 1)
+                CurrentCard = _cardsCollection[currentIndex + 1];
         }
 
-        public async void DisplayPopUps()
+        public async void DisplayPopUps(int index)
         {
-            if(CurrentCard.ID == 1)
+            if(index  == 0)
             {
                 await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertCantGoBack,
                     AppResources.SharedAlertOk);
             }
-            else if(CurrentCard.ID == 10)
+            else if(index == _cardsCollection.Count - 1)
             {
                 var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertPlayAgain,
@@ -91,8 +96,23 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
+                _cardsCollection.Shuffle();
                 CurrentCard = _cardsCollection.FirstOrDefault();
             }
+        }
+
+        public int GetCurrentIndex(int currentCardID)
+        {
+            var currentIndex = 0;
+            for(int i = 0; i < 10; i ++)
+            {
+                if (currentCardID == _cardsCollection[i].ID)
+                {
+                    currentIndex = i;
+                    break;
+                }
+            }
+            return currentIndex;
         }
     }
 }

@@ -10,7 +10,7 @@
 
     <ContentPage.Content>
         <StackLayout
-            HorizontalOptions="CenterAndExpand" 
+            HorizontalOptions="FillAndExpand" 
             VerticalOptions="CenterAndExpand">
             <StackLayout 
                 Orientation="Vertical">

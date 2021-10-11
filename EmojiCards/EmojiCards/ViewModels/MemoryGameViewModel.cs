@@ -92,6 +92,7 @@ namespace EmojiCards.ViewModels
         {
             _gamesRepository = new GamesRepository();
             _memoryCardsCollection = _gamesRepository.GetAllMemoryCards();
+            _memoryCardsCollection.Shuffle();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
@@ -205,7 +206,6 @@ namespace EmojiCards.ViewModels
             AreNavigationButtonsEnabled = true;
         }
 
-
         public void OnVoiceCommandTapped(MemoryCardModel currentCard)
         {
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
@@ -213,37 +213,43 @@ namespace EmojiCards.ViewModels
             player.Play();
         }
 
-        public void OnPreviousVoiceCardBtnTapped(MemoryCardModel currentCards)
+        public void OnPreviousVoiceCardBtnTapped(MemoryCardModel currentCard)
         {
-            if (currentCards.ID == 1)
+            var currentId = currentCard.ID;
+            var currentIndex = GetCurrentIndex(currentId);
+            if (currentIndex == 0)
             {
-                DisplayPopUps();
+                DisplayPopUps(currentIndex);
                 return;
             }
             IsUnvealCardsBtnVisible = true;
-            CurrentCard = _memoryCardsCollection.OrderByDescending(i => i.ID).Where(c => c.ID < currentCards.ID).FirstOrDefault();
+            if (currentIndex > 0)
+                CurrentCard = _memoryCardsCollection[currentIndex - 1];
         }
 
-        public void OnNextVoiceCardBtnTapped(MemoryCardModel currentCards)
+        public void OnNextVoiceCardBtnTapped(MemoryCardModel currentCard)
         {
-            if (currentCards.ID == 10)
+            var currentId = currentCard.ID;
+            var currentIndex = GetCurrentIndex(currentId);
+            if (currentIndex == _memoryCardsCollection.Count - 1)
             {
-                DisplayPopUps();
+                DisplayPopUps(currentIndex);
                 return;
             }
             IsUnvealCardsBtnVisible = true;
-            CurrentCard = _memoryCardsCollection.Where(c => c.ID > currentCards.ID).FirstOrDefault();
+            if (currentIndex < _memoryCardsCollection.Count - 1)
+                CurrentCard = _memoryCardsCollection[currentIndex + 1];
         }
 
-        public async void DisplayPopUps()
+        public async void DisplayPopUps(int index)
         {
-            if (CurrentCard.ID == 1)
+            if (index == 0)
             {
                 await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertCantGoBack,
                     AppResources.SharedAlertOk);
             }
-            else if (CurrentCard.ID == 10)
+            else if (index == _memoryCardsCollection.Count - 1)
             {
                 var result = await page.DisplayAlert(AppResources.SharedAlertAlert,
                     AppResources.SharedAlertPlayAgain,
@@ -253,8 +259,23 @@ namespace EmojiCards.ViewModels
                 if (!result)
                     await page.Navigation.PopAsync();
 
+                _memoryCardsCollection.Shuffle();
                 CurrentCard = _memoryCardsCollection.FirstOrDefault();
             }
+        }
+
+        public int GetCurrentIndex(int currentCardID)
+        {
+            var currentIndex = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                if (currentCardID == _memoryCardsCollection[i].ID)
+                {
+                    currentIndex = i;
+                    break;
+                }
+            }
+            return currentIndex;
         }
     }
 }
