@@ -64,7 +64,7 @@ namespace EmojiCards.ViewModels
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            CurrentCard.ImageSource = "question_mark.jpg";
+            CurrentCard.ImageSource = "question_mark.png";
             IsHelpBtnVisible = false;
             IsEmojiNameVisible = false;
         }

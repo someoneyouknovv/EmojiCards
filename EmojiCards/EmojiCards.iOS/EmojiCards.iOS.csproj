@@ -254,9 +254,9 @@
     <BundleResource Include="Resources\question_mark.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\background_firebaseauth.png" />
+    <BundleResource Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\background.png" />
+    <BundleResource Include="Resources\background_firebaseauth.png" />
   </ItemGroup>
 </Project>

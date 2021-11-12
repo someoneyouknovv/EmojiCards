@@ -15,10 +15,7 @@
                         Text="{xct:Translate SharedPlaceholderTitle}"
                         TextColor="Black"
                         FontSize="20"
-                        FontAttributes="Italic"
-                        Padding="5"
-                        CharacterSpacing="2"
-                        BackgroundColor="{StaticResource EmojiCardsBlue}"/>
+                        CharacterSpacing="2"/>
                     <Editor
                         AutoSize="TextChanges"
                         Placeholder="{xct:Translate SharedPlaceholderTitle}"
@@ -28,10 +25,7 @@
                         Text="{xct:Translate SharedPlaceholderDescription}"
                         TextColor="Black"
                         FontSize="20"
-                        FontAttributes="Italic"
-                        Padding="5"
-                        CharacterSpacing="2"
-                        BackgroundColor="{StaticResource EmojiCardsGreen}"/>
+                        CharacterSpacing="2"/>
                     <Editor
                         AutoSize="TextChanges"
                         Placeholder="{xct:Translate SharedPlaceholderDescription}"  
